@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
+  },
+  "scripts": {
+    "tailwind": "npx tailwindcss -i ./ecopro/ecom/static/ecom/tailwind.css -o ./ecopro/ecom/static/ecom/global.css --watch"
+  }
+}
