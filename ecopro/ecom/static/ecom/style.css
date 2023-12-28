@@ -1,3 +1,47 @@
 h1{
     color:red;
 }
+body{
+    background: #000;
+}
+.image img{
+    width: 700px;
+    display: block;
+    margin-left: auto;
+    border-radius:25px;
+    mask-image: linear-gradient(to left, black 70%, transparent 100%);
+    
+}
+.text_head h1{
+    font-family:  "press Start 2P","consolas", "sans-serif";
+    position:absolute;
+    top: 60%;
+    left: 5%;
+    text-align: left;
+    color: white;
+    font-size: 50px;
+}
+.text_head p{
+    font-family:  "press Start 2P","consolas", "sans-serif";
+    position:absolute;
+    top: 70%;
+    left: 5%;
+    text-align: left;
+    color: white;
+    font-size: 20px;
+    width: 650px;
+}
+.button_product button{
+    position: absolute;
+    top: 90%;
+    left: 5%;
+}
+.Cat h1{
+    font-family:  "press Start 2P","consolas", "sans-serif";
+    top: 160%;
+    position:absolute;
+    color: deeppink;
+    font-size: 35px;
+    text-align: left;
+    left: 5%;
+}
