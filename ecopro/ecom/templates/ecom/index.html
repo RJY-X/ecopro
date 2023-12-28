@@ -3,17 +3,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+        </style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="{% static 'ecom/style.css' %}">
+    <link rel="stylesheet" href="{% static 'ecom/nav.css' %}">
     <link rel="stylesheet" href="{% static 'ecom/global.css' %}">
+
+    
+    
 </head>
 <body>
+    
+    <nav class="nav">
+        <div class="text-red-600">
+            <a href="/">
+                <div id="logo"><p>apostel</p></div>
+            </a>
+        </div>
+        <div class="text-slate-50">
+          <ul class="nav_links"> 
+            <li><a href="/" class="here">Home</a></li>
+            <li><a href="/shop.html" >shop</a></li>      
+            <li><a href="/about_us.html" >about us</a></li>          
+            <li><a href="/contact_us.html" >contact us</a> </li>   
+            <li><a href="/cart.html" >cart
+            <span class="material-symbols-outlined">
+                shopping_cart
+                </span></a></li>
+            <li><a href="/sign_in.html" >sign in/up 
+            <span class="material-symbols-outlined">
+                account_circle
+                </span>  </a></li>
+            
+        </div>
+    </nav>
     <!--<h1 class="text-2xl">{{ name }}</h1>-->
     <div class="image">
-    <img src="{% static 'C:\Users\Legion\Documents\ecopro\ecopro\ecom\static\img\john-fornander-TAZoUmDqzXk-unsplash.jpg' %}">
+    <img src="{% static 'C:\Users\MSI\Desktop\PROJECT\ecopro\ecopro\ecom\static\img\john-fornander-TAZoUmDqzXk-unsplash.jpg' %}">
     </div>
 
     <div class="text_head">
@@ -29,10 +60,10 @@
     </div>
 
     <div class="rounded-md">
-        <img src="{% static 'C:\Users\Legion\Documents\ecopro\ecopro\ecom\static\img\whey.jpg' %}">
-        <img src="{% static 'C:\Users\Legion\Documents\ecopro\ecopro\ecom\static\img\whey.jpg' %}">
-        <img src="{% static 'C:\Users\Legion\Documents\ecopro\ecopro\ecom\static\img\whey.jpg' %}">
-        <img src="{% static 'C:\Users\Legion\Documents\ecopro\ecopro\ecom\static\img\whey.jpg' %}">
+        <img src="{% static 'C:\Users\MSI\Desktop\PROJECT\ecopro\ecopro\ecom\static\img\whey.jpg' %}">
+        <img src="{% static 'C:\Users\MSI\Desktop\PROJECT\ecopro\ecopro\ecom\static\img\whey.jpg' %}">
+        <img src="{% static 'C:\Users\MSI\Desktop\PROJECT\ecopro\ecopro\ecom\static\img\whey.jpg' %}">
+        <img src="{% static 'C:\Users\MSI\Desktop\PROJECT\ecopro\ecopro\ecom\static\img\whey.jpg' %}">
     </div>
 </body>
 </html>
