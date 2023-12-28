@@ -11,8 +11,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+
+    <link rel="stylesheet" href="{% static 'ecom/index.css' %}">
     <link rel="stylesheet" href="{% static 'ecom/nav.css' %}">
     <link rel="stylesheet" href="{% static 'ecom/global.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="w-full">
+        <section class="relative w-full h-screen">
+            <img class="max-w-[650px] right-0 absolute -z-10" src="{% static 'img/header-img.svg' %}">
+            <div class="w-full h-full flex justify-start items-center max-w-[1200px] mx-auto">
+            <div class="">
+            <h1 class="text-6xl font-header">PUSH YOUR LIMITS HARDER</h1>
+            <p class="font-medium mt-2">Apostel is Your Go-To Destination For To-Noch Fitness <br> Equipment And Supplements</p>
+            <button class="font-semibold btn-gradient py-3 px-6 rounded-lg mt-2">see our products</button>
+            </div>
+            </div>
+        </section>
+
+    
 
     
     
@@ -42,28 +62,20 @@
             
         </div>
     </nav>
-    <!--<h1 class="text-2xl">{{ name }}</h1>-->
-    <div class="image">
-    <img src="{% static 'C:\Users\MSI\Desktop\PROJECT\ecopro\ecopro\ecom\static\img\john-fornander-TAZoUmDqzXk-unsplash.jpg' %}">
-    </div>
+  
 
-    <div class="text_head">
-        <h1 >PUSH YOUR LIMITS HARDER</h1>
-        <p>Apostel is Your Go-To Destination For To-Noch Fitness Equipment And Supplements<p>
-    </div>
 
-    <div class="button_product text-red-500">
-        <button>see our products</button>
-    </div>
-    <div class="Cat">
-    <h1>Browse by category</h1><br>
-    </div>
+        <section class="w-full my-10 max-w-[1200px] mx-auto">
+            <div class="flex justify-between items-center w-full">
+                <h1 class="text-5xl font-header text-gradient w-fit">Browse by category</h1>
+                <a class="">see more</a>
+            </div>
+        </section>
 
-    <div class="rounded-md">
-        <img src="{% static 'C:\Users\MSI\Desktop\PROJECT\ecopro\ecopro\ecom\static\img\whey.jpg' %}">
-        <img src="{% static 'C:\Users\MSI\Desktop\PROJECT\ecopro\ecopro\ecom\static\img\whey.jpg' %}">
-        <img src="{% static 'C:\Users\MSI\Desktop\PROJECT\ecopro\ecopro\ecom\static\img\whey.jpg' %}">
-        <img src="{% static 'C:\Users\MSI\Desktop\PROJECT\ecopro\ecopro\ecom\static\img\whey.jpg' %}">
-    </div>
+
+    </main>
+
+   
+
 </body>
 </html>

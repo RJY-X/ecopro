@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    @apply h-full w-full scroll-smooth;
+}
+
+body {
+    @apply min-h-full w-full bg-neutral-950 text-white font-body;
+}
+.btn-gradient{
+    background: linear-gradient(90deg, #DC2626 0%, #ED3275 100%)
+}
+.text-gradient{
+    background: linear-gradient(90deg, #DD2828 0%, #F871A2 104.22%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
