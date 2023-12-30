@@ -18,3 +18,10 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.custom-input {
+    @apply px-5 py-2 border rounded-md focus:outline-none focus:border-rose-500;
+  }
+
+.custom-input12{
+    @apply px-40 py-36 border rounded-md focus:outline-none focus:border-rose-500;
+}
