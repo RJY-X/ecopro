@@ -1,10 +1,7 @@
-.li,a{
+.nav_links li, .nav_links a{
     font-family:'Inter', sans-serif;
     font-size: 16px;
-    font-weight: 500px;
-}
-body{
-    background: #000;
+    font-weight: 500;
 }
 .nav{
     display: flex;
