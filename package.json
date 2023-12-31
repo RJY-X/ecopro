@@ -4,5 +4,8 @@
   },
   "scripts": {
     "tailwind": "npx tailwindcss -i ./ecopro/ecom/static/ecom/tailwind.css -o ./ecopro/ecom/static/ecom/global.css --watch"
+  },
+  "dependencies": {
+    "@tailwindcss/forms": "^0.5.7"
   }
 }
