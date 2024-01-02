@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'shopFont';
+    src: url("/static/ecom/hard.ttf");
+}
+
+.font-hard{
+    font-family: shopFont;
+    line-height:190% ;
+  }

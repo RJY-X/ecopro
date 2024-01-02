@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,200"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'ecom/nav.css' %}" />
+    <link rel="stylesheet" href="{% static 'ecom/global.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    {% include "ecom/nav.html" %}
+    <main class="grid grid-cols-2 mt-11 ">
+      <section>
+        <!-- Table Section -->
+        <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+          <!-- Card -->
+          <div class="flex flex-col">
+            <div class="-m-1.5 overflow-x-auto">
+              <div class="p-1.5 min-w-full inline-block align-middle">
+                <div
+                  class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-slate-900 dark:border-gray-700"
+                >
+                  <!-- Header -->
+                  <div
+                    class="px-6 py-4 grid gap-3 border-b border-gray-200 dark:border-gray-700 grid-cols-2 ">
+                      <h2
+                        class="text-xl font-semibold text-gray-800  dark:text-gray-200 "
+                      >
+                        cart
+                      </h2>
+                      <h2 class="text-xl font-semibold text-gray-800  dark:text-gray-200 text-right" >
+                        price
+                      </h2>
+                  </div>
+                  <!-- End Header -->
+
+                 
+                  <!-- End Accordion -->
+
+                  <!-- Table -->
+                  <table
+                    class="min-w-full divide-y divide-gray-200 dark:divide-gray-700"
+                  >
+                    <thead class="bg-gray-50 dark:bg-slate-900">
+                    </thead>
+
+                    <tbody
+                      class="divide-y divide-gray-200 dark:divide-gray-700"
+                    >
+                      <tr
+                        class="bg-white hover:bg-gray-50 dark:bg-slate-900 dark:hover:bg-slate-800 px-6"
+                      >
+                        <td class=" whitespace-nowrap w-24 pl-6">
+                          <img src="{% static 'img/Whey.png' %}" class="w-24 h-24">
+                        </td>
+                        <td class=" whitespace-nowrap w-[calc(100%_-_96px)] pr-6">
+                          <div class="w-full flex justify-between items-center">
+                            <div>
+                              <h3 class="text-lg capitalize font-medium ">protein powder</h3>
+                              <p>type : protein</p>
+                              <button>quantity : 1</button>
+                            </div>
+                            <p  class="">23.9$</p>
+                          </div>
+                        </td>
+                      </tr>
+
+                      
+                    </tbody>
+                  </table>
+                  <!-- End Table -->
+
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Card -->
+        </div>
+        <!-- End Table Section -->
+
+        
+      </section>
+      <div class="max-w-2xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+        <div class="bg-neutral-800 rounded-xl shadow p-4 sm:p-7">
+          <div class="text-center mb-8">
+            <h2
+              class="text-2xl md:text-3xl font-bold text-gray-800 dark:text-gray-200"
+            >
+              Payment
+            </h2>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              Manage your payment methods.
+            </p>
+          </div>
+
+          <form>
+            <div
+              class="py-6 first:pt-0 last:pb-0 border-t first:border-transparent border-neutral-600 dark:border-gray-700 dark:first:border-transparent"
+            >
+              <label
+                for="af-payment-billing-contact"
+                class="inline-block text-sm font-medium dark:text-white"
+              >
+                Billing contact
+              </label>
+
+              <div class="mt-2 space-y-3">
+                <input
+                  id="af-payment-billing-contact"
+                  type="text"
+                  class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
+                  placeholder="First Name"
+                />
+                <input
+                  type="text"
+                  class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
+                  placeholder="Last Name"
+                />
+                <input
+                  type="text"
+                  class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
+                  placeholder="Phone Number"
+                />
+              </div>
+            </div>
+            <!-- End Section -->
+
+            <!-- Section -->
+            <div
+              class="py-6 first:pt-0 last:pb-0 border-t first:border-transparent border-neutral-600 dark:border-gray-700 dark:first:border-transparent"
+            >
+              <label
+                for="af-payment-billing-address"
+                class="inline-block text-sm font-medium dark:text-white"
+              >
+                Billing address
+              </label>
+
+              <div class="mt-2 space-y-3">
+                <input
+                  id="af-payment-billing-address"
+                  type="text"
+                  class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
+                  placeholder="Street Address"
+                />
+                <input
+                  type="text"
+                  class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
+                  placeholder="Apt, Syuite, Building (Optional)"
+                />
+                <div class="grid sm:flex gap-3">
+                  <input
+                    type="text"
+                    class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
+                    placeholder="Zip Code"
+                  />
+                  <select
+                    class="py-2 px-3 pe-9 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
+                  >
+                    <option selected>City</option>
+                    <option>City 1</option>
+                    <option>City 2</option>
+                    <option>City 3</option>
+                  </select>
+                  <select
+                    class="py-2 px-3 pe-9 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
+                  >
+                    <option selected>State</option>
+                    <option>State 1</option>
+                    <option>State 2</option>
+                    <option>State 3</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="py-6 first:pt-0 last:pb-0 border-t first:border-transparent border-neutral-600 dark:border-gray-700 dark:first:border-transparent"
+            >
+              <label
+                for="af-payment-payment-method"
+                class="inline-block text-sm font-medium dark:text-white"
+              >
+                Payment method
+              </label>
+
+              <div class="mt-2 space-y-3">
+                <input
+                  id="af-payment-payment-method"
+                  type="text"
+                  class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
+                  placeholder="Name on Card"
+                />
+                <input
+                  type="text"
+                  class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
+                  placeholder="Card Number"
+                />
+                <div class="grid sm:flex gap-3">
+                  <input
+                    type="text"
+                    class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
+                    placeholder="Expiration Date"
+                  />
+                  <input
+                    type="text"
+                    class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
+                    placeholder="CVV Code"
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <div class="mt-5 flex justify-end gap-x-2">
+            <button
+              type="button"
+              class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-white text-neutral-900 hover:bg-neutral-200 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+            >
+              Confirm
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

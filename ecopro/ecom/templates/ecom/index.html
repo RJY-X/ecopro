@@ -2,178 +2,365 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
-        </style>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<head>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,200"
+		/>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
 
+		<link rel="stylesheet" href="{% static 'ecom/index.css' %}" />
+		<link rel="stylesheet" href="{% static 'ecom/nav.css' %}" />
+		<link rel="stylesheet" href="{% static 'ecom/global.css' %}" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
 
-    <link rel="stylesheet" href="{% static 'ecom/index.css' %}">
-    <link rel="stylesheet" href="{% static 'ecom/nav.css' %}">
-    <link rel="stylesheet" href="{% static 'ecom/global.css' %}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-  
-<body>
-    <nav class="nav">
-        <div class="text-red-600">
-            <a href="/">
-                <div id="logo"><p>apostel</p></div>
-            </a>
-        </div>
-        <div class="text-slate-50">
-          <ul class="nav_links"> 
-            <li><a href="/" class="here">Home</a></li>
-            <li><a href="/shop.html" >shop</a></li>      
-            <li><a href="/about_us.html" >about us</a></li>          
-            <li><a href="/contact_us.html" >contact us</a> </li>   
-            <li><a href="/cart.html" >cart
-            <span class="material-symbols-outlined">
-                shopping_cart
-                </span></a></li>
-            <li><a href="/sign_in.html" >sign in/up 
-            <span class="material-symbols-outlined">
-                account_circle
-                </span>  </a></li>
-            
-        </div>
-    </nav>
-  
-    <main class="w-full">
-        <section class="relative w-full h-screen">
-            <img class="max-w-[650px] right-0 absolute -z-10" src="{% static 'img/header-img.svg' %}">
-            <div class="w-full h-full flex justify-start items-center max-w-[1200px] mx-auto">
-            <div class="">
-            <h1 class="text-6xl font-header">PUSH YOUR LIMITS HARDER</h1>
-            <p class="font-medium mt-2">Apostel is Your Go-To Destination For To-Noch Fitness <br> Equipment And Supplements</p>
-            <button class="font-semibold btn-gradient py-3 px-6 rounded-lg mt-2">see our products</button>
-            </div>
-            </div>
-        </section>
+	<body>
+		{% include "ecom/nav.html" %}
 
-        <section class="w-full my-10 max-w-[1200px] mx-auto">
-            <div class="flex justify-between items-center w-full">
-                <h1 class="text-5xl font-header text-gradient w-fit">Browse by category</h1>
-                <a class="">see more</a>
-            </div>
-            <ul>
-            <div class="flex justify-between items-center my-10 ">
-                <li>
-                <img class="rounded-lg" src="{% static 'img/whey.jpg' %}">
-                <p class="text-center mt-2">Protein Powder</p>
-                </li>
-                <li>
-                <img class="rounded-lg" src="{% static 'img/whey.jpg' %}">
-                <p class="text-center mt-2">Protein Powder</p>
-                </li>
-                <li>
-                <img class="rounded-lg" src="{% static 'img/whey.jpg' %}">
-                <p class="text-center mt-2">Protein Powder</p>
-                </li>
-                <li>
-                <img class="rounded-lg" src="{% static 'img/whey.jpg' %}">
-                <p class="text-center mt-2">Protein Powder</p>
-                </li>
-            </div>
-            </ul>
-        </section>
+		<main class="w-full">
+			<section class="relative w-full h-screen">
+				<img
+					class="max-w-[650px] right-0 absolute -z-10"
+					src="{% static 'img/header-img.svg' %}"
+				/>
+				<div
+					class="w-full h-full flex justify-start items-center max-w-[1200px] mx-auto"
+				>
+					<div class="">
+						<h1 class="text-8xl font-header">PUSH YOUR LIMITS HARDER</h1>
+						<p class="font-medium mt-2">
+							Apostel is Your Go-To Destination For To-Noch Fitness Equipment
+							<br />
+							And Supplements
+						</p>
+						<a href="{% url 'ecom:shop' %}"
+							 class="font-semibold btn-gradient py-3 px-6 rounded-lg mt-6 block w-fit  hover:scale-105 duration-300"
+						>
+							see our products
+					    </a>
+					</div>
+				</div>
+			</section>
 
+			<section class="w-full my-10 max-w-[1200px] mx-auto">
+				<div class="flex justify-between items-center w-full">
+					<h1 class="text-5xl font-header text-gradient w-fit">
+						Browse by category
+					</h1>
+					<a
+						class="hover:text-blue-400 transition-colors duration-300 inline-flex gap-x-[2px] items-center"
+						href="{% url 'ecom:shop' %}"
+						>see more
+						<span class="material-symbols-outlined text-lg">
+							chevron_right
+						</span></a
+					>
+				</div>
 
-        <section class="w-full my-10 max-w-[1200px] mx-auto">
-            <div class="text-center mb-10 mt-48">
-                <h1 class="font-header text-5xl ">PRODUCT OF THE WEEK </h1>
-            </div>
-            <img class="max-w-[550px] left-20 absolute -z-10" src="{% static 'img/ryse2.jpg' %}">
-            <div class="text-right">
-                <h1 class=" mr-8 mt-20 font-header text-8xl">LOADED PROTEIN</h1>
-                <p class="  mt-4 font-medium mr-44">Chocolate Peanut Butter Cup / 27 Servings</p>
-                <p class=" font-medium mr-2">Apostel Loaded Protein Combines premium Ingredients with Added Benefits<br> while Simultaneously 
-                    Bringing Incredible 5 star reviewed flavours to the table!<br> There is no reason 
-                    you can't have the added benefits of a high quality protein<br> formula without sacrificing taste. 
-                    Let RYSE LOADED PROTEIN show you the</p>
-                <button class="font-semibold btn-gradient py-3 px-56 rounded-lg mt-4 mr-9">Service Size</button><br>
-                <button class="font-semibold btn-gradient py-3 px-56 rounded-lg mt-20 mr-9">Service Size</button>        
-            </div>
-        </section>
+				<div class="flex justify-between items-center my-10">
+					<a
+						href="{% url 'ecom:shop' %}?filter=protein"
+						class="group bg-neutral-800 border-2 border-neutral-700 py-5 rounded-xl"
+					>
+						<img class="rounded-lg w-52" src="{% static 'img/whey.png' %}" />
+						<p class="text-center mt-2 group-hover:text-red-400">
+							Protein Powder
+						</p>
+					</a>
+					<a
+						href="{% url 'ecom:shop' %}?filter=protein"
+						class="group bg-neutral-800 border-2 border-neutral-700 py-5 rounded-xl"
+					>
+						<img class="rounded-lg w-52" src="{% static 'img/whey.png' %}" />
+						<p class="text-center mt-2 group-hover:text-red-400">
+							Protein Powder
+						</p>
+					</a>
+					<a
+						href="{% url 'ecom:shop' %}?filter=protein"
+						class="group bg-neutral-800 border-2 border-neutral-700 py-5 rounded-xl"
+					>
+						<img class="rounded-lg w-52" src="{% static 'img/whey.png' %}" />
+						<p class="text-center mt-2 group-hover:text-red-400">
+							Protein Powder
+						</p>
+					</a>
+					<a
+						href="{% url 'ecom:shop' %}?filter=protein"
+						class="group bg-neutral-800 border-2 border-neutral-700 py-5 rounded-xl"
+					>
+						<img class="rounded-lg w-52" src="{% static 'img/whey.png' %}" />
+						<p class="text-center mt-2 group-hover:text-red-400">
+							Protein Powder
+						</p>
+					</a>
+				</div>
+			</section>
 
+			<section
+				class="w-full bg-gradient-to-br p-0 my-48 from-[#F87171] to-[#F472B6]"
+			>
+				<div class="w-full h-24 bg-left-triangle"></div>
+				<div class="max-w-[1200px] mx-auto my-36">
+					<h1 class="font-header text-5xl mb-10 text-center">
+						PRODUCT OF THE WEEK
+					</h1>
+					<div class="flex justify-between items-center">
+						<img
+							class="max-w-[522px]"
+							src="{% static 'img/product-of-the-week.svg' %}"
+						/>
+						<div>
+							<h1 class="font-header text-8xl mb-2">LOADED PROTEIN</h1>
+							<p class="font-medium">Chocolate Peanut Butter Cup</p>
+							<p class="font-medium mb-4 max-w-[480px]">
+								Apostel Loaded Protein Combines premium Ingredients with Added
+								Benefits while Simultaneously Bringing Incredible 5 star
+								reviewed flavours to the table! There is no reason you can't
+								have the added benefits of a high quality protein formula
+								without sacrificing taste. Let Apostle LOADED PROTEIN show you
+								the Difference.
+							</p>
+							{% comment %} dropDown {% endcomment %}
+							<div class="relative">
+								<button
+									data-dropDown-btn="productId"
+									class="font-semibold inline-flex justify-center items-center gap-x-2 border-white border-2 bg-white/5 w-[540px] py-3 rounded-lg mb-3"
+								>
+									Choose a serving
+									<span class="material-symbols-outlined text-lg">
+										expand_more
+									</span>
+								</button>
+								<ul
+									data-dropDown-list="productId"
+									class="invisible opacity-0 transition-opacity duration-200 top-16 rounded-lg left-0 text-neutral-950 absolute w-full bg-neutral-100 shadow-md"
+								>
+									<li
+										data-dropDown-item
+										product-id="productId"
+										item-value="20"
+										class="m-2 p-2 hover:bg-neutral-200 transition-colors duration-300 rounded-lg cursor-pointer font-medium"
+									>
+										20 servings
+									</li>
+									<li
+										data-dropDown-item
+										product-id="productId"
+										item-value="34"
+										class="m-2 p-2 hover:bg-neutral-200 transition-colors duration-300 rounded-lg cursor-pointer font-medium"
+									>
+										34 servings
+									</li>
+								</ul>
+							</div>
+							<br />
+							<button
+								class="font-semibold bg-neutral-50 text-neutral-950 w-[540px] py-3 rounded-lg"
+							>
+								Add to cart
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="w-full h-24 bg-right-triangle"></div>
+			</section>
 
-        <section class="w-full my-72 max-w-[1200px] mx-auto">
-            <div class="flex justify-between items-center w-full">
-                <h1 class="text-5xl font-header text-gradient w-fit">Popular products</h1> 
+			<section class="w-full my-10 max-w-[1200px] mx-auto">
+				<div class="flex justify-between items-center w-full">
+					<h1 class="text-5xl font-header text-gradient w-fit">
+						Popular products
+					</h1>
+				</div>
 
-            </div>
-            <ul>
-                <div class="flex justify-between items-center my-10 ">
-                <li>
-                <img class="rounded-lg" src="{%static 'img/whey.jpg'%}">
-                <p class="text-center mt-2">Protein Powder 16dh</p>
-                </li>
-                <li>
-                <img class="rounded-lg" src="{%static 'img/whey.jpg'%}">
-                <p class="text-center mt-2">Protein Powder 16dh</p>
-                </li>
-                <li>
-                <img class="rounded-lg" src="{%static 'img/whey.jpg'%}">
-                <p class="text-center mt-2">Protein Powder 16dh</p>
-                </li>
-                </div>
-            </ul>
-        </section>
+				<div class="flex justify-between items-center my-10">
+					<a
+						href="{% url 'ecom:index' %}"
+						class="relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl"
+					>
+						<img
+							class="rounded-lg w-52 mt-12 mx-8"
+							src="{% static 'img/whey.png' %}"
+						/>
+						<div
+							class="w-full my-4 px-4 gap-y-1 flex flex-col justify-between items-start"
+						>
+							<p class="font-medium">Protein Powder</p>
+							<p class="font-medium">16dh</p>
+						</div>
+						<span
+							class="material-symbols-outlined text-neutral-600 absolute top-3 group-hover:text-red-400 right-3 text-2xl"
+						>
+							arrow_outward
+						</span>
+					</a>
 
+					<a
+						href="{% url 'ecom:index' %}"
+						class="relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl"
+					>
+						<img
+							class="rounded-lg w-52 mt-12 mx-8"
+							src="{% static 'img/whey.png' %}"
+						/>
+						<div
+							class="w-full my-4 px-4 gap-y-1 flex flex-col justify-between items-start"
+						>
+							<p class="font-medium">Protein Powder</p>
+							<p class="font-medium">16dh</p>
+						</div>
+						<span
+							class="material-symbols-outlined text-neutral-600 absolute top-3 group-hover:text-red-400 right-3 text-2xl"
+						>
+							arrow_outward
+						</span>
+					</a>
 
-        <section class="w-full my-10 max-w-[1200px] mx-auto">
-            <div>
-                <img class="rounded-lg" src="{% static 'img/noel 2.png' %}">
-            </div>
-        </section>
+					<a
+						href="{% url 'ecom:index' %}"
+						class="relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl"
+					>
+						<img
+							class="rounded-lg w-52 mt-12 mx-8"
+							src="{% static 'img/whey.png' %}"
+						/>
+						<div
+							class="w-full my-4 px-4 gap-y-1 flex flex-col justify-between items-start"
+						>
+							<p class="font-medium">Protein Powder</p>
+							<p class="font-medium">16dh</p>
+						</div>
+						<span
+							class="material-symbols-outlined text-neutral-600 absolute top-3 group-hover:text-red-400 right-3 text-2xl"
+						>
+							arrow_outward
+						</span>
+					</a>
 
+					<a
+						href="{% url 'ecom:index' %}"
+						class="relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl"
+					>
+						<img
+							class="rounded-lg w-52 mt-12 mx-8"
+							src="{% static 'img/whey.png' %}"
+						/>
+						<div
+							class="w-full my-4 px-4 gap-y-1 flex flex-col justify-between items-start"
+						>
+							<p class="font-medium">Protein Powder</p>
+							<p class="font-medium">16dh</p>
+						</div>
+						<span
+							class="material-symbols-outlined text-neutral-600 absolute top-3 group-hover:text-red-400 right-3 text-2xl"
+						>
+							arrow_outward
+						</span>
+					</a>
+				</div>
+			</section>
 
-        <section class="w-full my-10 max-w-[1200px] mx-auto">
-            <div class="text-center mb-10 mt-40">
-                <h1 class="font-header text-gradient text-5xl ">PRODUCT OF THE WEEK </h1>
-                <p class="text-center mt-2">Let's connect! Reach out for inquiries,<br>
-                    collaborations or help.</p>
-            </div>
-            <div class="flex justify-center items-center">
-                <input type="text" class="custom-input mr-4" />
-                <input type="email" class="custom-input" />
-            </div>
-            
-            <div class="flex justify-center items-center">
-                <input type="text" class="custom-input12 mt-4" />
-            </div>
-            <div class="text-center">
-                <button class="font-semibold btn-gradient py-3 px-56 rounded-lg mt-10">Send Your Message</button> 
-            </div>
-        </section>
+			<section id="aboutUs" class="w-full mt-56 mb-48 max-w-[1200px] mx-auto">
+				<div class="relative">
+					<img class="rounded-lg" src="{% static 'img/noel 2.png' %}" />
+					<div
+						class="flex flex-col justify-center w-full max-w-[60%] items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+					>
+						<h2 class="font-header text-6xl">Our Story</h2>
+						<h2 class="font-header text-4xl mt-4 uppercase">
+							Premium Quality, No Compromises
+						</h2>
+						<p class="text-center mt-6 font-medium">
+							Welcome to our fitness community, where passion meets purpose! At
+							apostel, we're dedicated to inspiring and empowering individuals
+							on their journey to optimal well-being At our shop.
+						</p>
+						<p class="text-center mt-2 font-medium">
+							we curate a selection of high-quality equipment, apparel, and
+							accessories to support your fitness journey. From cutting-edge
+							workout technology to stylish and functional active wear, we're
+							here to elevate your exercise experience
+						</p>
+					</div>
+				</div>
+			</section>
 
-        <section class="w-full my-10 max-w-[1200px] mx-auto">
-            <div class="flex justify-between items-center w-full">
-            <div class=" text-left">
-                <h2 class=" mt-28 text-gradient font-header text-2xl ">Apostel</h2>
-                <p class="font-header">Apostel is your go-to destination for top-notch fitness<br>
-                    equipment and supplements.</p>
-                <p class="mt-4 font-header">Copyright ©2023 Ecommerce by Apostel group.</p>
-            </div>
-            <div class="text-right">
-                <h2 class="mt-28 text-gradient font-header text-2xl ">contact us</h2>
-                <p class="font-header">address · tanger tren city</p>
-                <p class=" font-header">email · help@apsotelgroup.com</p>
-                <p class="font-header">phone · 0612365478 </p>   
-            </div>
-            </div>
-        </section>
+			<section id="contactUs" class="w-full my-10 max-w-[1200px] mx-auto">
+				<div class="text-center mb-10 mt-40">
+					<h1 class="font-header capitalize text-gradient text-5xl">
+						send us a message
+					</h1>
+					<p class="text-center mt-2">
+						Let's connect! Reach out for inquiries, collaborations or help.
+					</p>
+				</div>
+				<form class="flex flex-col w-fit justify-center items-center mx-auto">
+					<div class="flex justify-center items-center gap-x-4">
+						<div>
+							<label
+								for="full-name"
+								class="text-neutral-200 block font-medium mb-2"
+								>Full Name</label
+							>
+							<input
+								placeholder="kevin eleven"
+								id="full-name"
+								type="text"
+								class="custom-input"
+							/>
+						</div>
+						<div>
+							<label
+								for="full-name"
+								class="text-neutral-200 block font-medium mb-2"
+								>Email</label
+							>
+							<input
+								placeholder="example@mail.com"
+								id="full-name"
+								type="email"
+								class="custom-input"
+							/>
+						</div>
+					</div>
+					<textarea
+						rows="10"
+						type="textarea"
+						class="custom-input w-full mt-4"
+						placeholder="Your Message"
+					></textarea>
+					<button
+						type="submit"
+						class="inline-flex items-center justify-center gap-x-2 font-semibold text-neutral-950 hover:text-neutral-700 bg-white hover:bg-neutral-100 py-3 w-full rounded-lg mt-10"
+					>
+						Send Your Message
 
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="18"
+							height="18"
+							viewBox="0 0 24 24"
+							class="fill-neutral-950"
+						>
+							<path
+								d="M1.946 9.315c-.522-.174-.527-.455.01-.634L21.044 2.32c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8l-8 6z"
+							/>
+						</svg>
+					</button>
+				</form>
+			</section>
 
-    </main>
+			{% include "ecom/footer.html" %}
+		</main>
 
-   
-
-</body>
+		<script src="{% static 'ecom/dropDown.js' %}"></script>
+	</body>
 </html>
