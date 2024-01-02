@@ -8,3 +8,6 @@ def index(request):
 
 def login(request):
     return render(request, "ecom/login page.html") 
+
+def signin(request):
+    return render(request, "ecom/sign_in.html")
