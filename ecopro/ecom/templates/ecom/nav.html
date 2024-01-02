@@ -1,4 +1,4 @@
-<nav class="nav fixed w-full bg-neutral-950 z-10">
+<nav class="nav fixed w-full bg-neutral-950/50 backdrop-blur-sm top-0 z-10">
     <div class="text-red-500 font-medium">
         <a href="{% url 'ecom:index' %}">
             <div id="logo"><p class="capitalize">apostel</p></div>
@@ -10,7 +10,7 @@
         <li><a href="{% url 'ecom:shop' %}" >shop</a></li>      
         <li><a href="{% url 'ecom:index' %}#aboutUs" >about us</a></li>          
         <li><a href="{% url 'ecom:index' %}#contactUs" >contact us</a> </li>   
-        <li><a class="flex items-center gap-x-2" href="/cart.html" >cart
+        <li><a class="flex items-center gap-x-2" href="{% url 'ecom:cart' %}" >cart
         <span class="material-symbols-outlined  text-lg ">
             shopping_cart
             </span></a></li>
