@@ -20,10 +20,10 @@
     
 		<!-- sign up -->
 		<section class="w-[90%] m-auto my-8 flex flex-col items-center justify-center">
-			<form id="signup-form" class="bg-gradient-to-r from-red-600 to-pink-500 py-8 px-8 rounded-2xl border border-neutral-800">
-
+			<form method="POST" action="/signup" id="signup-form" class="bg-gradient-to-r from-red-600 to-pink-500 py-8 px-8 rounded-2xl border border-neutral-800">
+				{% csrf_token %}
 				<div>
-					<h1 class="font-logo text-5xl my-4 text-center text-black font-header">Apostel</h1>
+					<h1 class="font-logo text-5xl my-4 text-center text-black font-header">Apostel {{message}}</h1>
 
 
 					<h2 class=" text-center mt-2 font-header leading-7 text-black text-3xl">Sign in to your account</h2>
@@ -91,14 +91,10 @@
 				</div>
 			</form>
 		</section>
+		{% include "ecom/footer.html" %}
+	</main>
     
-  </div>
-	<footer class="text-neutral-900 font-brand border-t border-neutral-400 mt-12">
-		<div class="container px-5 py-4 mx-auto flex items-center flex-col">
-			<p class=" text-xl font-logo font-header text-neutral-500">Apostel</p>
-			<p class="text-sm text-neutral-500 mt-4 font-header">copyright — 2023</p>
-		</div>
-	</footer>
+  
 
 	
 </body>
