@@ -32,7 +32,8 @@
 						If you are already a member, easily log in
 					</p>
 
-					<form action="" class="flex flex-col gap-4">
+					<form method="POST" action="/login" class="flex flex-col gap-4">
+						{% csrf_token %}
 						<input
 							class="px-5 py-2 rounded-md focus:outline-none ring border-2 border-neutral-700 ring-transparent bg-neutral-950 placeholder:text-neutral-500 focus:border-red-400 focus:ring-red-400 font-header"
 							type="email"

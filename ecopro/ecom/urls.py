@@ -15,4 +15,5 @@ urlpatterns = [
     path("cart",views.cart, name="cart"),
     path("test",views.fr, name="test"),
 
+
 ]
