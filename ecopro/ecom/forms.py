@@ -12,7 +12,22 @@ class LoginForm(forms.Form):
 class SignupForm(UserCreationForm):
     firstname = forms.CharField(max_length=50)
     lastname = forms.CharField(max_length=50)
-    email=forms.EmailField()
+    email=forms.EmailField(required=True)
     class Meta:
         model=User
-        fields=['username','password']
+        fields=['username','email','password1','password2']
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.first_name = self.cleaned_data["firstname"]
+        user.last_name = self.cleaned_data["lastname"]
+        user.username = self.cleaned_data["username"]
+        user.email = self.cleaned_data["email"]
+
+        if commit:
+            print("user-commit")
+            print(user)
+            user.save()
+        return user
+
+
+
