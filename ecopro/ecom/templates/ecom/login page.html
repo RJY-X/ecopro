@@ -31,6 +31,9 @@
 					<p class="text-xs mb-2 font-medium text-black">
 						If you are already a member, easily log in
 					</p>
+					{% if error_message %}
+						<p style="color: black;">{{ error_message }}</p>
+					{% endif %}
 
 					<form method="POST" action="/login" class="flex flex-col gap-4">
 						{% csrf_token %}
@@ -66,7 +69,7 @@
 							</svg>
 						</div>
 						<button
-							class="bg-neutral-950 rounded-lg text-white py-2 hover:scale-105 duration-300 font-header"
+							class="bg-neutral-950 rounded-lg text-white py-2 hover:scale-105 duration-300 font-header" type="submit"
 						>
 							Sing In
 						</button>

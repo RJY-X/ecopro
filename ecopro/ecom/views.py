@@ -1,7 +1,7 @@
 from ecom.api.sign_up import signup
 from ecom.api.index import index
 from ecom.api.shop import shop
-from ecom.api.login import login
+from ecom.api.login import Alogin
 from ecom.api.cart import cart
 
 

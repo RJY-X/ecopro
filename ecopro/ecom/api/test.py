@@ -5,7 +5,7 @@ from ecom.models import Product
 
 
 from ecom.forms import LoginForm
-from ecom.models import Login
+
 
 def test(request):
     x = request.POST
