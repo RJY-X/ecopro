@@ -32,7 +32,7 @@
 						If you are already a member, easily log in
 					</p>
 					{% if error_message %}
-						<p style="color: black;">{{ error_message }}</p>
+						<p class="text-xs font-bold mb-2 ">{{ error_message }}</p>
 					{% endif %}
 
 					<form method="POST" action="/login" class="flex flex-col gap-4">
