@@ -22,8 +22,8 @@
   </head>
   <body>
     {% include "ecom/nav.html" %}
-    <main class="w-full max-w-[1200px] mx-auto my-20">
-      <div class="w-full flex h-full items-center justify-between">
+    <main class="w-full mx-auto my-20">
+      <div class=" max-w-[1200px] mx-auto w-full flex h-full items-center justify-between">
         {% comment %} product Image {% endcomment %}
         <div class="w-full h-full flex justify-center items-center relative">
           <img class="w-[80%]" src="{% static 'img/products/ryse.png' %}" />
@@ -156,7 +156,7 @@
         </div>
       </div>
       <section
-        class="w-full max-w-[1200px] flex items-center justify-between gap-x-6 mt-[8rem]"
+        class="w-full max-w-[1200px] mx-auto flex items-center justify-between gap-x-6 mt-[8rem] "
       >
         <img
           class="w-[360px]"
@@ -171,8 +171,155 @@
           src="{% static 'img//products/protein3.jpg' %}"
         />
       </section>
+
+      <section class="grid mt-32 mx-auto grid-cols-2 w-full ">
+        <div class="bg-neutral-300 flex justify-center items-end flex-col py-8">
+          <div class="bg-neutral-300 flex justify-start items-start flex-col py-8">
+          <h1 class="font-medium mb-2 mr-20 text-neutral-950 ">loaded protein</h1>
+          <img class="w-[360px] mr-20" src="{% static 'img/products/nfp-ct.webp' %}">
+        </div></div>
+
+        <div class=" text-base font-medium flex flex-col bg-neutral-200 justify-center items-start text-neutral-900 pb-8">
+          <div class="flex flex-col justify-start items-center ml-20">
+          <h1 class="font-header text-6xl mb-2">BUILD. RECOVER. STRENGTH.</h1>
+          <h2 class="font-bold mb-6 text-xl">Premium Quality, No Compromises</h2>
+          <p class="max-w-md text-center">
+            RYSE takes a unique approach to the lineup, 
+            utilizing the latest science and ingredients backed by clinical evidence. 
+            Not only do we use the best patented ingredients that are backed by research, 
+            we TEST multiple times. You'll always get what the label says and only use the highest quality ingredients, 
+            many are patented. By looking at our labels you will see that we cut no corners creating our products and never will, 
+            that is our commitment to you!</p>
+          <button
+            class="btn-gradient py-2 mt-10 w-full font-header text-2xl rounded-full max-w-[160px]"
+          >
+            add to cart
+          </button></div>
+        </div>
+      </section>
+
+      <section class="w-full my-10 max-w-[1200px] mx-auto">
+        <div class="flex justify-center items-center w-full">
+          <h1 class="text-5xl font-header text-gradient w-fit">
+            similare products
+          </h1>
+        </div>
+
+        <!-- slider -->
+        <div
+          class="py-7 h-fit embla after:pointer-events-none before:pointer-events-none relative after:absolute after:right-0 after:top-0 after:h-full after:w-11 after:bg-gradient-to-l after:from-neutral-950 after:to-transparent before:absolute before:left-0 before:top-0 before:h-full before:w-11 before:bg-gradient-to-l before:from-transparent before:z-10 before:to-neutral-950"
+        >
+          <!-- slider container -->
+          <div class="embla__container flex">
+            <!-- product -->
+            <a
+              href="{% url 'ecom:index' %}"
+              class="mr-12 embla__slide flex-shrink-0 flex-grow-0 basis-auto w-fit relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl"
+            >
+              <img
+                class="rounded-lg w-52 mt-12 mx-8"
+                src="{% static 'img/whey.png' %}"
+              />
+              <div
+                class="w-full my-4 px-4 gap-y-1 flex flex-col justify-between items-start"
+              >
+                <p class="font-medium">Protein Powder</p>
+                <p class="font-medium">16dh</p>
+              </div>
+              <span
+                class="material-symbols-outlined text-neutral-600 absolute top-3 group-hover:text-red-400 right-3 text-2xl"
+              >
+                arrow_outward
+              </span>
+            </a>
+
+            <a
+              href="{% url 'ecom:index' %}"
+              class="mr-12 embla__slide flex-shrink-0 flex-grow-0 basis-auto w-fit relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl"
+            >
+              <img
+                class="rounded-lg w-52 mt-12 mx-8"
+                src="{% static 'img/whey.png' %}"
+              />
+              <div
+                class="w-full my-4 px-4 gap-y-1 flex flex-col justify-between items-start"
+              >
+                <p class="font-medium">Protein Powder</p>
+                <p class="font-medium">16dh</p>
+              </div>
+              <span
+                class="material-symbols-outlined text-neutral-600 absolute top-3 group-hover:text-red-400 right-3 text-2xl"
+              >
+                arrow_outward
+              </span>
+            </a>
+
+            <a
+              href="{% url 'ecom:index' %}"
+              class="mr-12 embla__slide flex-shrink-0 flex-grow-0 basis-auto w-fit relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl"
+            >
+              <img
+                class="rounded-lg w-52 mt-12 mx-8"
+                src="{% static 'img/whey.png' %}"
+              />
+              <div
+                class="w-full my-4 px-4 gap-y-1 flex flex-col justify-between items-start"
+              >
+                <p class="font-medium">Protein Powder</p>
+                <p class="font-medium">16dh</p>
+              </div>
+              <span
+                class="material-symbols-outlined text-neutral-600 absolute top-3 group-hover:text-red-400 right-3 text-2xl"
+              >
+                arrow_outward
+              </span>
+            </a>
+
+            <a
+              href="{% url 'ecom:index' %}"
+              class="mr-12 embla__slide flex-shrink-0 flex-grow-0 basis-auto w-fit relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl"
+            >
+              <img
+                class="rounded-lg w-52 mt-12 mx-8"
+                src="{% static 'img/whey.png' %}"
+              />
+              <div
+                class="w-full my-4 px-4 gap-y-1 flex flex-col justify-between items-start"
+              >
+                <p class="font-medium">Protein Powder</p>
+                <p class="font-medium">16dh</p>
+              </div>
+              <span
+                class="material-symbols-outlined text-neutral-600 absolute top-3 group-hover:text-red-400 right-3 text-2xl"
+              >
+                arrow_outward
+              </span>
+            </a>
+          </div>
+
+          <div class="flex items-center gap-x-4 my-6 cursor-pointer">
+            <div
+              class="embla__button--prev relative hover:bg-neutral-50 hover:text-neutral-900 duration-300 transition-colors z-10 bg-neutral-700 px-6 py-2 rounded-full flex items-center"
+            >
+              <span class="material-symbols-outlined"> arrow_back_ios </span>
+            </div>
+            <div
+              class="cursor-pointer embla__button--next relative hover:bg-neutral-50 hover:text-neutral-900 duration-300 transition-colors z-10 bg-neutral-700 px-6 py-2 rounded-full flex items-center"
+            >
+              <span class="material-symbols-outlined"> arrow_forward_ios </span>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     {% include "ecom/footer.html" %}
+
+    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+
+    <script
+      type="module"
+      src="{% static 'ecom/products/slider.mjs' %}"
+    ></script>
 
     <script src="{% static 'ecom/products/flavor-dropdown.js' %}"></script>
     <script src="{% static 'ecom/products/quantity.js' %}"></script>

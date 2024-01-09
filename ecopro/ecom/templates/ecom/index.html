@@ -132,7 +132,7 @@
 			</div>
 
 			<!-- slider -->
-			<div class="py-7 h-fit embla after:pointer-events-none before:pointer-events-none relative after:absolute after:right-0 after:top-0 after:h-full after:w-11 after:bg-gradient-to-l after:from-neutral-900 after:to-transparent before:absolute before:left-0 before:top-0 before:h-full before:w-11 before:bg-gradient-to-l before:from-transparent before:z-10 before:to-neutral-900">
+			<div class="py-7 h-fit embla after:pointer-events-none before:pointer-events-none relative after:absolute after:right-0 after:top-0 after:h-full after:w-11 after:bg-gradient-to-l after:from-neutral-950 after:to-transparent before:absolute before:left-0 before:top-0 before:h-full before:w-11 before:bg-gradient-to-l before:from-transparent before:z-10 before:to-neutral-950">
 				<!-- slider container -->
 				<div class="embla__container flex">
 
@@ -148,6 +148,38 @@
 						</span>
 					</a>
 
+					<a href="{% url 'ecom:index' %}" class="mr-12 embla__slide flex-shrink-0 flex-grow-0 basis-auto w-fit relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl">
+						<img class="rounded-lg w-52 mt-12 mx-8" src="{% static 'img/whey.png' %}" />
+						<div class="w-full my-4 px-4 gap-y-1 flex flex-col justify-between items-start">
+							<p class="font-medium">Protein Powder</p>
+							<p class="font-medium">16dh</p>
+						</div>
+						<span class="material-symbols-outlined text-neutral-600 absolute top-3 group-hover:text-red-400 right-3 text-2xl">
+							arrow_outward
+						</span>
+					</a>
+
+					<a href="{% url 'ecom:index' %}" class="mr-12 embla__slide flex-shrink-0 flex-grow-0 basis-auto w-fit relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl">
+						<img class="rounded-lg w-52 mt-12 mx-8" src="{% static 'img/whey.png' %}" />
+						<div class="w-full my-4 px-4 gap-y-1 flex flex-col justify-between items-start">
+							<p class="font-medium">Protein Powder</p>
+							<p class="font-medium">16dh</p>
+						</div>
+						<span class="material-symbols-outlined text-neutral-600 absolute top-3 group-hover:text-red-400 right-3 text-2xl">
+							arrow_outward
+						</span>
+					</a>
+
+					<a href="{% url 'ecom:index' %}" class="mr-12 embla__slide flex-shrink-0 flex-grow-0 basis-auto w-fit relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl">
+						<img class="rounded-lg w-52 mt-12 mx-8" src="{% static 'img/whey.png' %}" />
+						<div class="w-full my-4 px-4 gap-y-1 flex flex-col justify-between items-start">
+							<p class="font-medium">Protein Powder</p>
+							<p class="font-medium">16dh</p>
+						</div>
+						<span class="material-symbols-outlined text-neutral-600 absolute top-3 group-hover:text-red-400 right-3 text-2xl">
+							arrow_outward
+						</span>
+					</a>
 				</div>
 
 				<div class="flex items-center gap-x-4 my-6 cursor-pointer">
@@ -226,6 +258,17 @@
 		{% include "ecom/footer.html" %}
 	</main>
 
+    {% for product in products %}
+    <h1>{{product.name}}</h1>
+    {% comment %} <img src="{{p.name}}"> {% endcomment %}
+	<h1>{{product.description}}</h1>
+    <h1>{{product.type}}</h1>
+		{% for image in product_images.product %}
+			<img src="{{ image.image.url }}" alt="{{ product.name }} Image">
+		{% endfor %}
+
+    {% endfor %}
+    
 	<script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
 
 	<script type="module" src="{% static 'ecom/products/slider.mjs' %}"></script>
