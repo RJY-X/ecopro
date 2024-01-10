@@ -14,6 +14,10 @@ from .models import (
 
 # Register your models here.
 admin.site.register(Product)
+
+admin.site.site_header='APOSTEl PANEL'
+admin.site.site_title='APOSTEl PANEL'
+
 admin.site.register(Cart)
 admin.site.register(CartItem)
 admin.site.register(Order)
@@ -23,3 +27,4 @@ admin.site.register(ProductImages)
 admin.site.register(Flavor)
 admin.site.register(FlavorToProduct)
 admin.site.register(FlavorImage)
+
