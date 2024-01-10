@@ -4,7 +4,7 @@ from ecom.api.shop import shop
 from ecom.api.login import Alogin
 from ecom.api.cart import cart
 
-
+from ecom.api.profile import profile
 from ecom.api.products import products
 
 from ecom.api.test import test,fr

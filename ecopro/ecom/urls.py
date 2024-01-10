@@ -13,6 +13,7 @@ urlpatterns = [
     path("cart",views.cart, name="cart"),
     path("products",views.products, name="products"),
     path("test",views.fr, name="test"),
+    path("profile",views.profile,name="profile"),
 
 
 ]
