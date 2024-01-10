@@ -2,65 +2,343 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,200"
-    />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+	<head>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,200"
+		/>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
 
-    <link rel="stylesheet" href="{% static 'ecom/nav.css' %}" />
-    <link rel="stylesheet" href="{% static 'ecom/global.css' %}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <main class="w-full max-w-[1200px] mx-auto">
-      <div class="w-full grid grid-cols-2">
-        <div class="flex flex-col">
-          <div><a href=""> shop </a></div>
-          <h1 class="font-bold text-5xl capitalize">pump daddy</h1>
-          <h3 class="text-gray-300 text-2xl mt-2 mb-4">Freedom Rocks</h3>
-          <p class="text-xl font-medium mb-4">69$</p>
-          <p class="mb-4">
-            Pump Daddy Non-Stim Pre-Workout is everything you love about
-            increased pumps and performance just without the caffeine. Late
-            nights workouts, taking a break from caffeine, or stacked with your
-            favorite pre-workout, the versatility is endless.
-          </p>
-          <p class="font-medium">Flavor</p>
-          <button
-            class="border mt-2 py-1 border-neutral-50 flex items-center justify-start font-medium px-4 gap-x-4 capitalize"
-          >
-            <img class="w-12 h-12" src="{% static 'img/whey.png' %}" />
-            candy rush
-            <span class="material-symbols-outlined ml-auto text-2xl">
-              expand_more
-            </span>
-          </button>
-          <p>quantity</p>
-          <div class="flex items-center ">
-            <button class="border px-20 py-4 text-lg font-bold border-neutral-50 ">
-                + 
-            </button>
-            <input type="text" value="0" class="bg-transparent w-[100px] text-center outline-none border-none"/>
-            <button
-              class="border text-lg font-bold px-20 py-4 border-neutral-50 "
-            >
-              -
-            </button>
-          </div>
-          <button class="">add to cart</button>
-        </div>
-        <img class="" src="{% static 'img/whey.png' %}" />
-      </div>
-    </main>
-    {% include "ecom/footer.html" %}
-  </body>
+		<link rel="stylesheet" href="{% static 'ecom/nav.css' %}" />
+		<link rel="stylesheet" href="{% static 'ecom/global.css' %}" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		{% include "ecom/nav.html" %}
+		<main class="w-full mx-auto mb-20 mt-36">
+			<div
+				class="max-w-[1200px] mx-auto w-full flex h-full items-center justify-between"
+			>
+				{% comment %} product Image {% endcomment %}
+				<div class="w-full h-full flex justify-center items-center relative">
+					<img class="w-[80%]" src="{% static 'img/products/ryse.png' %}" />
+					<img
+						id="flavor-img-md"
+						class="absolute left-[25%] w-[180px] bottom-[10%]"
+						src="{% static 'img/products/cinnamon-md.png' %}"
+					/>
+					<img
+						id="flavor-img-lg"
+						class="max-w-[600px] -z-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+						src="{% static 'img/products/cinnamon-lg.png' %}"
+					/>
+				</div>
+				<div class="flex flex-col mb-2">
+					<div
+						class="capitalize flex justify-start items-center gap-x-1 font-medium text-xs"
+					>
+						<a
+							class="hover:text-red-400 transition-colors duration-200 flex gap-x-1 justify-start items-end"
+							href="{% url 'ecom:shop' %}"
+						>
+							shop
+							<span class="material-symbols-outlined"> chevron_right </span></a
+						>
+						<a
+							class="hover:text-red-400 transition-colors duration-200"
+							href=""
+						>
+							Protein
+						</a>
+					</div>
+					<h1 class="font-bold text-5xl capitalize">pump daddy</h1>
+					<h3
+						id="sub-headline"
+						class="text-gray-500 capitalize text-2xl mt-2 mb-2 font-header"
+					>
+						cinnamon toast
+					</h3>
+					<p class="text-2xl font-medium mb-6 tabular-nums">69$</p>
+					<p class="mb-4 max-w-md text-base font-medium">
+						Pump Daddy Non-Stim Pre-Workout is everything you love about
+						increased pumps and performance just without the caffeine. Late
+						nights workouts, taking a break from caffeine, or stacked with your
+						favorite pre-workout, the versatility is endless.
+					</p>
+					{% comment %} FLavor section {% endcomment %}
+					<p class="font-medium capitalize">Flavor</p>
+					<div class="relative">
+						<button
+							id="flavor-btn"
+							class="border mt-2 py-2 max-w-72 border-neutral-50 flex items-center hover:border-red-400 justify-start font-medium px-4 gap-x-4 capitalize hover:text-red-400 transition-colors duration-200"
+						>
+							<img
+								id="flavor-btn-img"
+								class="w-10 h-10"
+								src="{% static 'img/products/cinnamon-sm.png' %}"
+							/>
+							<span id="flavor-btn-text">cinnamon toast</span>
+							<span
+								id="flavor-btn-icon"
+								class="material-symbols-outlined ml-auto text-2xl"
+							>
+								expand_more
+							</span>
+						</button>
+
+						<ul
+							data-flavors-list
+							class="invisible opacity-0 transition-opacity duration-200 top-[5rem] rounded-lg left-0 text-neutral-950 absolute w-full bg-neutral-100 shadow-md"
+						>
+							<li
+								data-flavor-item
+								data-flavor-img-small="static/img/products/cinnamon-sm.png"
+								data-flavor-img-medium="static/img/products/cinnamon-md.png"
+								data-flavor-img-large="static/img/products/cinnamon-lg.png"
+								data-flavor-value="cinnamon toast"
+								class="flex items-center justify-start capitalize gap-x-4 m-2 p-2 hover:bg-neutral-200 transition-colors duration-300 rounded-lg cursor-pointer font-medium"
+							>
+								<img
+									class="w-12 h-12"
+									src="{% static 'img/products/cinnamon-sm.png' %}"
+								/>
+								cinnamon toast
+							</li>
+							<li
+								data-flavor-item
+								data-flavor-img-small="static/img/products/muffin-sm.png"
+								data-flavor-img-medium="static/img/products/muffin-md.png"
+								data-flavor-img-large="static/img/products/muffin-lg.png"
+								data-flavor-value="blueberry muffin"
+								class="flex items-center justify-start capitalize gap-x-4 m-2 p-2 hover:bg-neutral-200 transition-colors duration-300 rounded-lg cursor-pointer font-medium"
+							>
+								<img
+									class="w-12 h-12"
+									src="{% static 'img/products/muffin-sm.png' %}"
+								/>
+								blueberry muffin
+							</li>
+						</ul>
+					</div>
+
+					{% comment %} Quantity section {% endcomment %}
+					<p class="mt-4 font-medium capitalize mb-2">quantity</p>
+					<div class="flex items-center">
+						<button
+							class="border px-20 py-2 flex items-center text-lg font-bold border-neutral-50 hover:text-red-400 transition-colors duration-200 hover:border-red-400"
+							id="add-quantity"
+						>
+							<span class="material-symbols-outlined text-2xl"> add </span>
+						</button>
+						<input
+							id="quantity-value"
+							type="text"
+							value="1"
+							class="bg-transparent w-[100px] text-center text-xl outline-none border-none"
+						/>
+						<button
+							class="border px-20 py-2 flex items-center text-lg font-bold border-neutral-50 hover:text-red-400 transition-colors duration-200 hover:border-red-400"
+							id="minus-quantity"
+						>
+							<span class="material-symbols-outlined text-2xl"> remove </span>
+						</button>
+					</div>
+					<button
+						class="btn-gradient py-2 mt-6 w-full font-header text-2xl rounded-md"
+					>
+						add to cart
+					</button>
+				</div>
+			</div>
+			<section
+				class="w-full max-w-[1200px] mx-auto flex items-center justify-between gap-x-6 mt-[8rem]"
+			>
+				<img
+					class="w-[360px]"
+					src="{% static 'img/products/protein.webp' %} "
+				/>
+				<img
+					class="w-[360px]"
+					src="{% static 'img//products/protein2.webp' %}"
+				/>
+				<img
+					class="w-[360px]"
+					src="{% static 'img//products/protein3.jpg' %}"
+				/>
+			</section>
+
+			<section class="grid mt-32 mx-auto grid-cols-2 w-full">
+				<div class="bg-neutral-300 flex justify-center items-end flex-col py-8">
+					<div
+						class="bg-neutral-300 flex justify-start items-start flex-col py-8"
+					>
+						<h1 class="font-medium mb-2 mr-20 text-neutral-950">
+							loaded protein
+						</h1>
+						<img
+							class="w-[360px] mr-20"
+							src="{% static 'img/products/nfp-ct.webp' %}"
+						/>
+					</div>
+				</div>
+
+				<div
+					class="text-base font-medium flex flex-col bg-neutral-200 justify-center items-start text-neutral-900 pb-8"
+				>
+					<div class="flex flex-col justify-start items-center ml-20">
+						<h1 class="font-header text-6xl mb-2">BUILD. RECOVER. STRENGTH.</h1>
+						<h2 class="font-bold mb-6 text-xl">
+							Premium Quality, No Compromises
+						</h2>
+						<p class="max-w-md text-center">
+							RYSE takes a unique approach to the lineup, utilizing the latest
+							science and ingredients backed by clinical evidence. Not only do
+							we use the best patented ingredients that are backed by research,
+							we TEST multiple times. You'll always get what the label says and
+							only use the highest quality ingredients, many are patented. By
+							looking at our labels you will see that we cut no corners creating
+							our products and never will, that is our commitment to you!
+						</p>
+						<button
+							class="btn-gradient py-2 mt-10 w-full font-header text-2xl rounded-full max-w-[160px]"
+						>
+							add to cart
+						</button>
+					</div>
+				</div>
+			</section>
+
+			<section class="w-full my-10 max-w-[1200px] mx-auto">
+				<div class="flex justify-center items-center w-full">
+					<h1 class="text-5xl font-header text-gradient w-fit">
+						similare products
+					</h1>
+				</div>
+
+				<!-- slider -->
+				<div
+					class="py-7 h-fit embla after:pointer-events-none before:pointer-events-none relative after:absolute after:right-0 after:top-0 after:h-full after:w-11 after:bg-gradient-to-l after:from-neutral-950 after:to-transparent before:absolute before:left-0 before:top-0 before:h-full before:w-11 before:bg-gradient-to-l before:from-transparent before:z-10 before:to-neutral-950"
+				>
+					<!-- slider container -->
+					<div class="embla__container flex">
+						<!-- product -->
+						<a
+							href="{% url 'ecom:index' %}"
+							class="mr-12 embla__slide flex-shrink-0 flex-grow-0 basis-auto w-fit relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl"
+						>
+							<img
+								class="rounded-lg w-52 mt-12 mx-8"
+								src="{% static 'img/whey.png' %}"
+							/>
+							<div
+								class="w-full my-4 px-4 gap-y-1 flex flex-col justify-between items-start"
+							>
+								<p class="font-medium">Protein Powder</p>
+								<p class="font-medium">16dh</p>
+							</div>
+							<span
+								class="material-symbols-outlined text-neutral-600 absolute top-3 group-hover:text-red-400 right-3 text-2xl"
+							>
+								arrow_outward
+							</span>
+						</a>
+
+						<a
+							href="{% url 'ecom:index' %}"
+							class="mr-12 embla__slide flex-shrink-0 flex-grow-0 basis-auto w-fit relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl"
+						>
+							<img
+								class="rounded-lg w-52 mt-12 mx-8"
+								src="{% static 'img/whey.png' %}"
+							/>
+							<div
+								class="w-full my-4 px-4 gap-y-1 flex flex-col justify-between items-start"
+							>
+								<p class="font-medium">Protein Powder</p>
+								<p class="font-medium">16dh</p>
+							</div>
+							<span
+								class="material-symbols-outlined text-neutral-600 absolute top-3 group-hover:text-red-400 right-3 text-2xl"
+							>
+								arrow_outward
+							</span>
+						</a>
+
+						<a
+							href="{% url 'ecom:index' %}"
+							class="mr-12 embla__slide flex-shrink-0 flex-grow-0 basis-auto w-fit relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl"
+						>
+							<img
+								class="rounded-lg w-52 mt-12 mx-8"
+								src="{% static 'img/whey.png' %}"
+							/>
+							<div
+								class="w-full my-4 px-4 gap-y-1 flex flex-col justify-between items-start"
+							>
+								<p class="font-medium">Protein Powder</p>
+								<p class="font-medium">16dh</p>
+							</div>
+							<span
+								class="material-symbols-outlined text-neutral-600 absolute top-3 group-hover:text-red-400 right-3 text-2xl"
+							>
+								arrow_outward
+							</span>
+						</a>
+
+						<a
+							href="{% url 'ecom:index' %}"
+							class="mr-12 embla__slide flex-shrink-0 flex-grow-0 basis-auto w-fit relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl"
+						>
+							<img
+								class="rounded-lg w-52 mt-12 mx-8"
+								src="{% static 'img/whey.png' %}"
+							/>
+							<div
+								class="w-full my-4 px-4 gap-y-1 flex flex-col justify-between items-start"
+							>
+								<p class="font-medium">Protein Powder</p>
+								<p class="font-medium">16dh</p>
+							</div>
+							<span
+								class="material-symbols-outlined text-neutral-600 absolute top-3 group-hover:text-red-400 right-3 text-2xl"
+							>
+								arrow_outward
+							</span>
+						</a>
+					</div>
+
+					<div class="flex items-center gap-x-4 my-6 cursor-pointer">
+						<div
+							class="embla__button--prev relative hover:bg-neutral-50 hover:text-neutral-900 duration-300 transition-colors z-10 bg-neutral-700 px-6 py-2 rounded-full flex items-center"
+						>
+							<span class="material-symbols-outlined"> arrow_back_ios </span>
+						</div>
+						<div
+							class="cursor-pointer embla__button--next relative hover:bg-neutral-50 hover:text-neutral-900 duration-300 transition-colors z-10 bg-neutral-700 px-6 py-2 rounded-full flex items-center"
+						>
+							<span class="material-symbols-outlined"> arrow_forward_ios </span>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		{% include "ecom/footer.html" %}
+
+		<script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+
+		<script
+			type="module"
+			src="{% static 'ecom/products/slider.mjs' %}"
+		></script>
+
+		<script src="{% static 'ecom/products/flavor-dropdown.js' %}"></script>
+		<script src="{% static 'ecom/products/quantity.js' %}"></script>
+	</body>
 </html>
