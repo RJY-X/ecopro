@@ -27,7 +27,6 @@ function selectFlavor(event) {
 		.closest("[data-flavor-item]")
 		.getAttribute("data-flavor-value");
 
-	console.log(event.target.closest("[data-flavor-value]"));
 	return flavor;
 }
 
@@ -47,16 +46,21 @@ function setFlavorImage(selector, url) {
 	image.src = url;
 }
 
+function setFlavorValue(flavor) {
+	const flavorsList = document.querySelector(`[data-flavors-list]`);
+
+	flavorsList.setAttribute("data-flavor-value", flavor);
+}
+
 flavors.forEach((el) => {
 	el.addEventListener("click", (e) => {
 		const flavor = selectFlavor(e);
 		toggleDropDown();
 		changeElementText("#flavor-btn-text", flavor);
 		changeElementText("#sub-headline", flavor);
+		setFlavorValue(flavor);
 
 		const urls = selectFlavorImageURLs(e);
-		console.log(urls);
-
 		setFlavorImage("#flavor-btn-img", urls.sm);
 		setFlavorImage("#flavor-img-md", urls.md);
 		setFlavorImage("#flavor-img-lg", urls.lg);
