@@ -21,10 +21,13 @@ def get_product_by_id(id: int):
             "price": first_variant.price,
             "serving": first_variant.serving,
             "description": product.description,
-            "flavor": first_flavor.name,
+            "flavor_name": first_flavor.name,
             "type": product.type,
-            "flavors": flavors,
             "imgs": images,
+            # flavor_imgs
+            "flavors": flavors,
+            
+            
             
         }
     }
