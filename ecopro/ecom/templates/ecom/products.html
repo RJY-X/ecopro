@@ -25,20 +25,35 @@
 		<main class="w-full mx-auto mb-20 mt-36">
 			<div
 				class="max-w-[1200px] mx-auto w-full flex h-full items-center justify-between"
-			>
+			> 
+			 
 				{% comment %} product Image {% endcomment %}
+				
 				<div class="w-full h-full flex justify-center items-center relative">
-					<img class="w-[80%]" src="{% static 'img/products/ryse.png' %}" />
+					{% for p in product.imgs %}
+						{% if p.type == 'main' %}
+					 		<img class="w-[80%]" src="{{ MEDIA_URL }}{{p.urls}}" />
+						{% endif  %}
+					{% endfor  %}
+					
+					{% comment %} {% for p in product.flavors %} {% endcomment %}
+					{% for img in product.flavors.first.flavorimage_set.all %}
+					{% if img.type == 'medium' %}
 					<img
 						id="flavor-img-md"
 						class="absolute left-[25%] w-[180px] bottom-[10%]"
-						src="{% static 'img/products/cinnamon-md.png' %}"
+						src="{{ MEDIA_URL }}{{img.img}}"
 					/>
+					{% endif  %}
+					{% if img.type == 'large' %}
 					<img
 						id="flavor-img-lg"
 						class="max-w-[600px] -z-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-						src="{% static 'img/products/cinnamon-lg.png' %}"
+						src="{{ MEDIA_URL }}{{img.img}}"
 					/>
+					{% endif  %}
+					{% endfor  %}
+					{% comment %} {% endfor  %} {% endcomment %}
 				</div>
 				<div class="flex flex-col mb-2">
 					<div
@@ -58,19 +73,16 @@
 							{{product.type}}
 						</a>
 					</div>
-					<h1 class="font-bold text-5xl capitalize">pump daddy</h1>
+					<h1 class="font-bold text-5xl capitalize">{{product.name}}</h1>
 					<h3
 						id="sub-headline"
 						class="text-gray-500 capitalize text-2xl mt-2 mb-2 font-header"
 					>
-						cinnamon toast
+					{{product.flavor_name}}
 					</h3>
-					<p class="text-2xl font-medium mb-6 tabular-nums">69$</p>
+					<p class="text-2xl font-medium mb-6 tabular-nums">{{product.price}}</p>
 					<p class="mb-4 max-w-md text-base font-medium">
-						Pump Daddy Non-Stim Pre-Workout is everything you love about
-						increased pumps and performance just without the caffeine. Late
-						nights workouts, taking a break from caffeine, or stacked with your
-						favorite pre-workout, the versatility is endless.
+						{{product.description}}
 					</p>
 					{% comment %} FLavor section {% endcomment %}
 					<p class="font-medium capitalize">Flavor</p>
@@ -79,12 +91,15 @@
 							id="flavor-btn"
 							class="border mt-2 py-2 max-w-72 border-neutral-50 flex items-center hover:border-red-400 justify-start font-medium px-4 gap-x-4 capitalize hover:text-red-400 transition-colors duration-200"
 						>
+						{% for imgs in product.flavors.first.flavorimage_set.all%}
+						{% if imgs.type == 'small' %}
 							<img
 								id="flavor-btn-img"
-								class="w-10 h-10"
-								src="{% static 'img/products/cinnamon-sm.png' %}"
+								class="w-[30%]"
+								src="{{MEDIA_URL}}{{imgs.img}}"
 							/>
-							<span id="flavor-btn-text">cinnamon toast</span>
+							{% endif %}{% endfor %}
+							<span id="flavor-btn-text">{{product.flavor_name}}</span>
 							<span
 								id="flavor-btn-icon"
 								class="material-symbols-outlined ml-auto text-2xl"
@@ -127,7 +142,7 @@
 							</li>
 						</ul>
 					</div>
-
+						
 					{% comment %} Quantity section {% endcomment %}
 					<p class="mt-4 font-medium capitalize mb-2">quantity</p>
 					<div class="flex items-center">
@@ -156,6 +171,7 @@
 						add to cart
 					</button>
 				</div>
+			  
 			</div>
 			<section
 				class="w-full max-w-[1200px] mx-auto flex items-center justify-between gap-x-6 mt-[8rem]"
