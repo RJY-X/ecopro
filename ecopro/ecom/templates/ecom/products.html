@@ -29,24 +29,27 @@
 				{% comment %} product Image {% endcomment %}
 
 				<div class="w-full h-full flex justify-center items-center relative">
-					{% for p in product.imgs %} {% if p.type == 'main' %}
+					{% for p in product.imgs %} 
+					{% if p.type == 'main' %}
 					<img class="w-[80%]" src="{{ MEDIA_URL }}{{p.urls}}" />
-					{% endif %} {% endfor %} {% comment %} {% for p in product.flavors %}
-					{% endcomment %} {% for img in
-					product.flavors.first.flavorimage_set.all %} {% if img.type ==
-					'medium' %}
-					<img
-						id="flavor-img-md"
-						class="absolute left-[25%] w-[180px] bottom-[10%]"
-						src="{{ MEDIA_URL }}{{img.img}}"
-					/>
-					{% endif %} {% if img.type == 'large' %}
+					{% endif %} 
+					{% endfor %} {% comment %} {% for p in product.flavors %}{% endcomment %} 
+					{% for img in product.flavors.first.flavorimage_set.all %} 
+						{% if img.type == 'medium' %}
+						<img
+							id="flavor-img-md"
+							class="absolute left-[25%] w-[180px] bottom-[10%]"
+							src="{{ MEDIA_URL }}{{img.img}}"
+						/>
+						{% endif %} 
+					{% if img.type == 'large' %}
 					<img
 						id="flavor-img-lg"
 						class="max-w-[600px] -z-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
 						src="{{ MEDIA_URL }}{{img.img}}"
 					/>
-					{% endif %} {% endfor %} {% comment %} {% endfor %} {% endcomment %}
+					{% endif %} 
+					{% endfor %} {% comment %} {% endfor %} {% endcomment %}
 				</div>
 				<div class="flex flex-col mb-2">
 					<div
@@ -90,14 +93,15 @@
 							id="flavor-btn"
 							class="border mt-2 py-2 max-w-72 border-neutral-50 flex items-center hover:border-red-400 justify-start font-medium px-4 gap-x-4 capitalize hover:text-red-400 transition-colors duration-200"
 						>
-							{% for imgs in product.flavors.first.flavorimage_set.all%} {% if
-							imgs.type == 'small' %}
+							{% for imgs in product.flavors.first.flavorimage_set.all%} 
+							{% if imgs.type == 'small' %}
 							<img
 								id="flavor-btn-img"
 								class="w-[30%]"
 								src="{{MEDIA_URL}}{{imgs.img}}"
 							/>
-							{% endif %}{% endfor %}
+							{% endif %}
+							{% endfor %}
 							<span id="flavor-btn-text">{{product.flavor_name}}</span>
 							<span
 								id="flavor-btn-icon"
