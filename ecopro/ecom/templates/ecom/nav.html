@@ -6,19 +6,34 @@
     </div>
     <div class="text-slate-50">
       <ul class="nav_links"> 
+
+        
         <li><a href="/" class="here">home</a></li>
-        <li><a href="{% url 'ecom:shop' %}" >shop</a></li>      
+        <li><a href="{% url 'ecom:shop' %}" >shop</a></li> 
+        {% if page == "index" %}     
         <li><a href="{% url 'ecom:index' %}#aboutUs" >about us</a></li>          
-        <li><a href="{% url 'ecom:index' %}#contactUs" >contact us</a> </li>   
+        <li><a href="{% url 'ecom:index' %}#contactUs" >contact us</a> </li> 
+        {% endif  %}  
         <li><a class="flex items-center gap-x-2" href="{% url 'ecom:cart' %}" >cart
         <span class="material-symbols-outlined  text-lg ">
             shopping_cart
             </span></a></li>
-        <li><a class="flex items-center gap-x-2" href="{% url 'ecom:login' %}" >sign in
+        {% if user.is_authenticated %} 
+        <li><a class="flex items-center gap-x-2" href="{% url 'ecom:profile' %}" >profile
+        <span class="material-symbols-outlined  text-lg ">
+            account_circle
+            </span>
+            </a></li>
+
+        {% else  %}
+            <li><a class="flex items-center gap-x-2" href="{% url 'ecom:login' %}" >sign in
             <span class="material-symbols-outlined  text-lg ">
                 account_circle
                 </span>
+        
         </a></li>
+        {% endif  %} 
+        
         
     </div>
 </nav>
