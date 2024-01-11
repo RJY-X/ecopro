@@ -19,7 +19,7 @@
 			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
 			rel="stylesheet"
 		/>
-	</head> 
+	</head>
 	<body>
 		{% include "ecom/nav.html" %}
 		<main class="w-full mx-auto mb-20 mt-36">
@@ -65,7 +65,13 @@
 					>
 						cinnamon toast
 					</h3>
-					<p class="text-2xl font-medium mb-6 tabular-nums">69$</p>
+					<p
+						id="product-price"
+						data-price="60"
+						class="text-2xl font-medium mb-6 tabular-nums"
+					>
+						69$
+					</p>
 					<p class="mb-4 max-w-md text-base font-medium">
 						Pump Daddy Non-Stim Pre-Workout is everything you love about
 						increased pumps and performance just without the caffeine. Late
@@ -95,6 +101,7 @@
 
 						<ul
 							data-flavors-list
+							data-flavor-value="cinnamon toast"
 							class="invisible opacity-0 transition-opacity duration-200 top-[5rem] rounded-lg left-0 text-neutral-950 absolute w-full bg-neutral-100 shadow-md"
 						>
 							<li
@@ -151,6 +158,8 @@
 						</button>
 					</div>
 					<button
+						data-add-to-cart-btn
+						data-product-id="1"
 						class="btn-gradient py-2 mt-6 w-full font-header text-2xl rounded-md"
 					>
 						add to cart
@@ -340,5 +349,6 @@
 
 		<script src="{% static 'ecom/products/flavor-dropdown.js' %}"></script>
 		<script src="{% static 'ecom/products/quantity.js' %}"></script>
+		<script src="{% static 'ecom/products/add-to-cart.js' %}"></script>
 	</body>
 </html>
