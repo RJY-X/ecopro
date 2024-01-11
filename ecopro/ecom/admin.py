@@ -1,4 +1,5 @@
 from django.contrib import admin
+from .models import ContactInfo
 from .models import (
     Product,
     Cart,
@@ -27,4 +28,9 @@ admin.site.register(ProductImages)
 admin.site.register(Flavor)
 admin.site.register(FlavorToProduct)
 admin.site.register(FlavorImage)
+
+
+admin.site.register(ContactInfo)
+
+
 
