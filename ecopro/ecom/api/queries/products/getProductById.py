@@ -13,21 +13,47 @@ def get_product_by_id(id: int):
     # for element in flavors:
     #     for img in element.flavorimage_set.all():
     #         print(f"flavor: {element.name} --- img: {img.img} --- type: {img.type}")
+    
+    flavors_data = []
+
+    for flavor in flavors:
+        flavors_data.append(
+            {
+                "name": flavor.name,
+                "large_img": flavor.flavorimage_set.filter(type="large").first().img,
+                "medium_img": flavor.flavorimage_set.filter(type="medium").first().img,
+                "small_img": flavor.flavorimage_set.filter(type="small").first().img,
+            }
+        )
+        
+        
+    
+            
+            
     first_variant = variants.first()
     first_flavor = flavors.first()
+    
+    
+    first_flavor_imgs = {}
+    for img in first_flavor.flavorimage_set.all():
+        if img.type == "small":
+            first_flavor_imgs.update({"small_img": img.img})
+        if img.type == "medium":
+            first_flavor_imgs.update({"medium_img": img.img})
+        if img.type == "large":
+            first_flavor_imgs.update({"large_img": img.img})
+            
+            
     return {
         "product": {
             "name": product.name,
             "price": first_variant.price,
             "serving": first_variant.serving,
             "description": product.description,
-            "flavor_name": first_flavor.name,
+            "first_flavor": {**first_flavor_imgs, "name": first_flavor.name},
             "type": product.type,
             "imgs": images,
-            # flavor_imgs
-            "flavors": flavors,
-            
-            
-            
+
+            "flavors": flavors_data,
         }
     }
