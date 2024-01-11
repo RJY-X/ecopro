@@ -262,7 +262,8 @@
 						Let's connect! Reach out for inquiries, collaborations or help.
 					</p>
 				</div>
-				<form class="flex flex-col w-fit justify-center items-center mx-auto">
+				<form method="POST" class="flex flex-col w-fit justify-center items-center mx-auto">
+					{% csrf_token %}
 					<div class="flex justify-center items-center gap-x-4">
 						<div>
 							<label
@@ -275,19 +276,21 @@
 								id="full-name"
 								type="text"
 								class="custom-input"
+								name="fullname"
 							/>
 						</div>
 						<div>
 							<label
-								for="full-name"
+								for="email"
 								class="text-neutral-200 block font-medium mb-2"
 								>Email</label
 							>
 							<input
 								placeholder="example@mail.com"
-								id="full-name"
+								id="email"
 								type="email"
 								class="custom-input"
+								name="email"
 							/>
 						</div>
 					</div>
@@ -296,6 +299,7 @@
 						type="textarea"
 						class="custom-input w-full mt-4"
 						placeholder="Your Message"
+						name="message"
 					></textarea>
 					<button
 						type="submit"
