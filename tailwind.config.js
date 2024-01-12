@@ -5,6 +5,7 @@ module.exports = {
 		"./ecopro/ecom/static/**/*.css",
 		,
 		"./ecopro/ecom/static/**/*.js",
+		"./ecopro/ecom/static/**/*.mjs",
 	],
 	theme: {
 		extend: {
