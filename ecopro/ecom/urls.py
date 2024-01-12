@@ -14,8 +14,8 @@ urlpatterns = [
     path("signup", views.signup, name="signup"),
     path("shop", views.shop, name="shop"),
     path("cart", views.cart, name="cart"),
-    path("cart/add_to_cart", views.add_to_cart, name="add cart item"),
-    path("products", views.redirect_to_shop, name="redirect to shop"),
+    path("cart/add_to_cart", views.add_to_cart, name="add_cart_item"),
+    path("products", views.redirect_to_shop, name="redirect_to_shop"),
     path("products/<int:id>", views.products, name="product"),
 ]
 
