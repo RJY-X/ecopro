@@ -90,8 +90,9 @@
         </div>
         <!-- End Table Section -->
 
-        
       </section>
+      <form method="POST">
+      {% csrf_token %}
       <div class="max-w-2xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
         <div class="bg-neutral-800 rounded-xl shadow p-4 sm:p-7">
           <div class="text-center mb-8">
@@ -105,7 +106,7 @@
             </p>
           </div>
 
-          <form>
+          <form method="POST" action="/cart">
             <div
               class="py-6 first:pt-0 last:pb-0 border-t first:border-transparent border-neutral-600 dark:border-gray-700 dark:first:border-transparent"
             >
@@ -122,16 +123,19 @@
                   type="text"
                   class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
                   placeholder="First Name"
+                  name="first_name"
                 />
                 <input
                   type="text"
                   class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
                   placeholder="Last Name"
+                  name="last_name"
                 />
                 <input
-                  type="text"
+                  type="email"
                   class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
-                  placeholder="Phone Number"
+                  placeholder="email"
+                  name="email"
                 />
               </div>
             </div>
@@ -154,35 +158,9 @@
                   type="text"
                   class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
                   placeholder="Street Address"
+                  name="address"
                 />
-                <input
-                  type="text"
-                  class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
-                  placeholder="Apt, Syuite, Building (Optional)"
-                />
-                <div class="grid sm:flex gap-3">
-                  <input
-                    type="text"
-                    class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
-                    placeholder="Zip Code"
-                  />
-                  <select
-                    class="py-2 px-3 pe-9 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
-                  >
-                    <option selected>City</option>
-                    <option>City 1</option>
-                    <option>City 2</option>
-                    <option>City 3</option>
-                  </select>
-                  <select
-                    class="py-2 px-3 pe-9 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
-                  >
-                    <option selected>State</option>
-                    <option>State 1</option>
-                    <option>State 2</option>
-                    <option>State 3</option>
-                  </select>
-                </div>
+                
               </div>
             </div>
 
@@ -202,36 +180,34 @@
                   type="text"
                   class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
                   placeholder="Name on Card"
-                />
-                <input
-                  type="text"
-                  class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
-                  placeholder="Card Number"
+                  name="cart_name"
                 />
                 <div class="grid sm:flex gap-3">
                   <input
                     type="text"
                     class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
                     placeholder="Expiration Date"
+                    name="exp"
                   />
                   <input
                     type="text"
                     class="py-2 px-3 pe-11 block w-full border-neutral-600 shadow-sm text-sm rounded-lg focus:border-red-500 focus:ring-red-500 disabled:opacity-50 disabled:pointer-events-none bg-neutral-700"
                     placeholder="CVV Code"
+                    name="cvv"
                   />
                 </div>
               </div>
             </div>
+            <div class="mt-5 flex justify-end gap-x-2">
+              <button
+                type="submit"
+                class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-white text-neutral-900 hover:bg-neutral-200 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+              >
+                Confirm
+              </button>
+            </div>
+            
           </form>
-
-          <div class="mt-5 flex justify-end gap-x-2">
-            <button
-              type="button"
-              class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-white text-neutral-900 hover:bg-neutral-200 disabled:opacity-50 disabled:pointer-events-none dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
-            >
-              Confirm
-            </button>
-          </div>
         </div>
       </div>
     </main>

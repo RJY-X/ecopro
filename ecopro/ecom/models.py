@@ -116,3 +116,13 @@ class CartItem(models.Model):
 
     def __str__(self):
         return f"CartItem {self.id} - Quantity: {self.quantity} - Total: {self.total}"
+
+
+
+class ContactInfo(models.Model):
+    fullname = models.CharField(max_length=255)
+    email = models.EmailField()
+    message = models.TextField()
+
+    def __str__(self):
+        return self.fullname

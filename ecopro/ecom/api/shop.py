@@ -8,7 +8,7 @@ def shop(request):
 
     filter = request.GET.get("filter", "")
 
-    if filter == "protein" or filter == "pre-workout" or filter == "creatine":
+    if filter == "protein" or filter == "pre-workout" or filter == "creatine" or filter == "BCAA" or filter == "weight" or filter == "accessories":
         products = get_products_by_type(filter)
     else:
         products = get_all_products()
