@@ -10,10 +10,6 @@ def get_product_by_id(id: int):
     variants = ProductVariant.objects.filter(product=product)
     flavors = Flavor.objects.filter(product=product).prefetch_related("flavorimage_set")
 
-    # for element in flavors:
-    #     for img in element.flavorimage_set.all():
-    #         print(f"flavor: {element.name} --- img: {img.img} --- type: {img.type}")
-    
     flavors_data = []
 
     for flavor in flavors:
@@ -25,15 +21,10 @@ def get_product_by_id(id: int):
                 "small_img": flavor.flavorimage_set.filter(type="small").first().img,
             }
         )
-        
-        
-    
-            
-            
+
     first_variant = variants.first()
     first_flavor = flavors.first()
-    
-    
+
     first_flavor_imgs = {}
     for img in first_flavor.flavorimage_set.all():
         if img.type == "small":
@@ -42,8 +33,7 @@ def get_product_by_id(id: int):
             first_flavor_imgs.update({"medium_img": img.img})
         if img.type == "large":
             first_flavor_imgs.update({"large_img": img.img})
-            
-            
+
     return {
         "product": {
             "name": product.name,
@@ -53,7 +43,7 @@ def get_product_by_id(id: int):
             "first_flavor": {**first_flavor_imgs, "name": first_flavor.name},
             "type": product.type,
             "imgs": images,
-
+            "varients": variants,
             "flavors": flavors_data,
         }
     }

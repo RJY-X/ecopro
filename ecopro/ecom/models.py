@@ -107,7 +107,10 @@ class Cart(models.Model):
 class CartItem(models.Model):
     id = models.AutoField(primary_key=True)
     quantity = models.PositiveIntegerField()
-    total = models.DecimalField(max_digits=10, decimal_places=2)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    flavor = models.CharField(max_length=255)
+    serving = models.CharField(max_length=50)
+
     cart_id = models.ForeignKey("Cart", on_delete=models.CASCADE)
     product = models.ForeignKey("Product", on_delete=models.CASCADE)
 
