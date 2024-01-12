@@ -12,9 +12,11 @@ def check_for_cart(user_id):
         return {"ok": False, "data": None}
 
 
-def check_for_item(product_id):
+def check_for_item(cart, product_id, serving, flavor):
     try:
-        item = CartItem.objects.get(product__id=product_id)
+        item = CartItem.objects.get(
+            cart_id=cart, product__id=product_id, serving=serving, flavor=flavor
+        )
 
         return {"ok": True, "data": item}
 

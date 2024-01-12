@@ -42,6 +42,7 @@ def get_product_by_id(id: int):
             "description": product.description,
             "first_flavor": {**first_flavor_imgs, "name": first_flavor.name},
             "type": product.type,
+            "id": product.id,
             "imgs": images,
             "varients": variants,
             "flavors": flavors_data,
