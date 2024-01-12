@@ -186,21 +186,19 @@
 					</button>
 				</div>
 			</div>
+			{% comment %} secondary images {% endcomment %}
 			<section
 				class="w-full max-w-[1200px] mx-auto flex items-center justify-between gap-x-6 mt-[8rem]"
 			>
-				<img
-					class="w-[360px]"
-					src="{% static 'img/products/protein.webp' %} "
-				/>
-				<img
-					class="w-[360px]"
-					src="{% static 'img//products/protein2.webp' %}"
-				/>
-				<img
-					class="w-[360px]"
-					src="{% static 'img//products/protein3.jpg' %}"
-				/>
+				{% for img in product.imgs %}
+					{% if img.type == 'secondary' %}
+						<img
+						class="w-[360px]"
+						src="{{MEDIA_URL}}{{img.urls}}"
+						/>
+					{% endif %}
+				{% endfor %}
+				
 			</section>
 
 			<section class="grid mt-32 mx-auto grid-cols-2 w-full">
