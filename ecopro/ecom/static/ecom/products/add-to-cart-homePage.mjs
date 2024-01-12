@@ -60,8 +60,17 @@ const successToast = (text) =>
 			"bg-gradient-to-l from-neutral-800 to-neutral-800 text-sm w-full px-4 py-4 border-2 border-green-700 rounded-md max-w-fit capitalize flex items-center justify-between text-body text-neutral-300",
 		close: true,
 		gravity: "top", // `top` or `bottom`
-		position: "right", // `left`, `center` or `right`
+		position: "center", // `left`, `center` or `right`
 		stopOnFocus: true, // Prevents dismissing of toast on hover
+		onclick: () =>{
+			window.location.href = 'http://127.0.0.1:8000/cart';
+
+			console.log("test")
+			
+
+
+
+		},
 	}).showToast();
 
 const errorToast = (text) =>
@@ -74,7 +83,7 @@ const errorToast = (text) =>
 			"bg-gradient-to-l from-neutral-800 to-neutral-800 text-sm w-full px-4 py-4 border-2 border-red-700 rounded-md max-w-fit capitalize flex items-center justify-between text-body text-neutral-300",
 		close: true,
 		gravity: "top", // `top` or `bottom`
-		position: "right", // `left`, `center` or `right`
+		position: "center", // `left`, `center` or `right`
 		stopOnFocus: true, // Prevents dismissing of toast on hover
 	}).showToast();
 
@@ -82,6 +91,7 @@ const handleResponse = (res) => {
 	if (res.ok) {
 		// see what type of action happened in the backend
 		if (res.action === "nothing") {
+			successToast("ur cum just got added");
 			return;
 		}
 
