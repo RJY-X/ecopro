@@ -7,6 +7,7 @@ class Product(models.Model):
     description = models.TextField(null=True)
     name = models.CharField(max_length=255)
     type = models.CharField(max_length=50, null=True)
+    product_of_the_week = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.name} - Id {self.id}"
@@ -115,7 +116,7 @@ class CartItem(models.Model):
     product = models.ForeignKey("Product", on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"CartItem {self.id} - Quantity: {self.quantity} - Price: {self.price}"
+        return f"CartItem {self.id} - Product id {self.product.id} - Quantity: {self.quantity} - Price: {self.price} - Serving {self.serving}"
 
 
 class ContactInfo(models.Model):

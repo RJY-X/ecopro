@@ -5,21 +5,19 @@ const cookies = new universalCookie(null, { path: "/" });
 const btns = document.querySelectorAll("[data-add-to-cart-btn]");
 
 function getData(btn) {
-	const flavor = document
-		.querySelector("[data-flavors-list]")
-		.getAttribute("data-flavor-value");
+	const flavor = btn.getAttribute("data-flavor");
 
-	let quantity = Number(document.querySelector("#quantity-value").value);
+	const quantity = 1;
 
 	const productId = Number(btn.getAttribute("data-product-id"));
 
 	const price = Number(
-		document.getElementById("product-price").getAttribute("data-price")
+		document.querySelector("[data-pricing]").getAttribute("data-price")
 	);
 
-	const serving = document.querySelector("[data-serving-option]:checked").value;
-
-	if (isNaN(quantity) === true || quantity < 1) quantity = 1;
+	const serving = document
+		.querySelector(`[data-dropDown-list="${productId}"]`)
+		.getAttribute("data-dropDown-serving");
 
 	if (productId <= 0 || isNaN(productId)) {
 		console.log("please set product id", productId);
@@ -80,30 +78,32 @@ const errorToast = (text) =>
 		stopOnFocus: true, // Prevents dismissing of toast on hover
 	}).showToast();
 
+const handleResponse = (res) => {
+	if (res.ok) {
+		// see what type of action happened in the backend
+		if (res.action === "nothing") {
+			return;
+		}
+
+		if (res.action === "create") {
+			successToast("product was added successfully");
+			return;
+		}
+
+		if (res.action === "update") {
+			successToast("your cart was updated successfully");
+			return;
+		}
+	} else {
+		errorToast("an error has occured, try again later.");
+		return;
+	}
+};
 btns.forEach((btn) => {
 	btn.addEventListener("click", async () => {
 		const data = getData(btn);
-
+		console.log("🚀 ~ data ~", JSON.stringify(data));
 		const res = await addToCart(data);
-
-		if (res.ok) {
-			// see what type of action happened in the backend
-			if (res.action === "nothing") {
-				return;
-			}
-
-			if (res.action === "create") {
-				successToast("product was added successfully");
-				return;
-			}
-
-			if (res.action === "update") {
-				successToast("your cart was updated successfully");
-				return;
-			}
-		} else {
-			errorToast("an error has occured, try again later.");
-			return;
-		}
+		handleResponse(res);
 	});
 });
