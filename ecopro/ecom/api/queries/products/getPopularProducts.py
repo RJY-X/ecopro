@@ -16,6 +16,8 @@ def get_popular_products():
                 url = img.urls
 
         variant = p.productvariant_set.first()
-        products.append({"name": p.name, "url": url, "price": variant.price})
+        products.append(
+            {"name": p.name, "url": url, "price": variant.price, "id": p.id}
+        )
 
     return {"products": products}
