@@ -4,8 +4,6 @@ from ecom.api.shop import shop
 from ecom.api.redirect_to_shop import redirect_to_shop
 from ecom.api.login import Alogin
 from ecom.api.cart import cart
-
-
 from ecom.api.profile import profile
-
 from ecom.api.products import products
+from ecom.api.add_to_cart import add_to_cart

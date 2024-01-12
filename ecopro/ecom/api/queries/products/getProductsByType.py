@@ -17,5 +17,7 @@ def get_products_by_type(type: str):
                 url = img.urls
 
         variant = p.productvariant_set.first()
-        products.append({"name": p.name, "url": url, "price": variant.price})
+        products.append(
+            {"name": p.name, "url": url, "price": variant.price, "id": p.id}
+        )
     return {"products": products}
