@@ -20,31 +20,16 @@
         {% comment %}product Image{% endcomment %}
 
         <div class="w-full h-full flex justify-center items-center relative">
-          {% for p in product.imgs %}
-            {% if p.type == 'main' %}
-              <img class="w-[80%]" src="{{ MEDIA_URL }}{{ p.urls }}" />
-            {% endif %}
-          {% endfor %} {% comment %} {% for p in product.flavors %}
-            {% endcomment %}
-            {% for img in product.flavors.first.flavorimage_set.all %}
-              {% if img.type == 'medium' %}
-                <img id="flavor-img-md" class="absolute left-[25%] w-[180px] bottom-[10%]" src="{{ MEDIA_URL }}{{ img.img }}" />
-              {% endif %}
-              {% if img.type == 'large' %}
-                <img id="flavor-img-lg" class="max-w-[600px] -z-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" src="{{ MEDIA_URL }}{{ img.img }}" />
-              {% endif %}
-            {% endfor %} {% comment %}
-          {% endfor %} {% endcomment %}
+          <img id="flavor-img-md" class="absolute left-[25%] w-[180px] bottom-[10%]" src="{{ MEDIA_URL }}{{ product.first_flavor.medium_img }}" />
+          <img id="flavor-img-lg" class="max-w-[600px] -z-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" src="{{ MEDIA_URL }}{{ product.first_flavor.large_img }}" />
 
           {% for p in product.imgs %}
             {% if p.type == 'main' %}
               <img class="w-[80%]" src="{{ MEDIA_URL }}{{ p.urls }}" />
             {% endif %}
           {% endfor %}
-
-          <img id="flavor-img-md" class="absolute left-[25%] w-[180px] bottom-[10%]" src="{{ MEDIA_URL }}{{ product.first_flavor.medium_img }}" />
-          <img id="flavor-img-lg" class="max-w-[600px] -z-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" src="{{ MEDIA_URL }}{{ product.first_flavor.large_img }}" />
         </div>
+        {% comment %}info section{% endcomment %}
         <div class="flex flex-col mb-2">
           <div class="capitalize flex justify-start items-center gap-x-1 font-medium text-xs">
             <a class="hover:text-red-400 transition-colors duration-200 flex gap-x-1 justify-start items-end" href="{% url 'ecom:shop' %}">
@@ -57,17 +42,11 @@
           <h3 id="sub-headline" class="text-gray-500 capitalize text-2xl mt-2 mb-2 font-header">{{ product.flavor_name }}</h3>
           <p id="product-price" data-price="60" class="text-2xl font-medium mb-6 tabular-nums">{{ product.price }}</p>
           <p class="mb-4 max-w-md text-base font-medium">{{ product.description }}</p>
+
           {% comment %}FLavor section{% endcomment %}
           <p class="font-medium capitalize">Flavor</p>
           <div class="relative">
             <button id="flavor-btn" class="border mt-2 py-2 max-w-72 border-neutral-50 flex items-center hover:border-red-400 justify-start font-medium px-4 gap-x-4 capitalize hover:text-red-400 transition-colors duration-200">
-              {% for imgs in product.flavors.first.flavorimage_set.all %}
-                {% if imgs.type == 'small' %}
-                  <img id="flavor-btn-img" class="w-[30%]" src="{{ MEDIA_URL }}{{ imgs.img }}" />
-                {% endif %}
-              {% endfor %}
-              <span id="flavor-btn-text">{{ product.flavor_name }}</span>
-
               <img id="flavor-btn-img" class="w-[100%] max-w-[60px]" src="{{ MEDIA_URL }}{{ product.first_flavor.small_img }}" />
 
               <span id="flavor-btn-text">{{ product.first_flavor.name }}</span>
@@ -185,6 +164,6 @@
 
     <script src="{% static 'ecom/products/flavor-dropdown.js' %}"></script>
     <script src="{% static 'ecom/products/quantity.js' %}"></script>
-    <script src="{% static 'ecom/products/add-to-cart.js' %}"></script>
+    <script type="module" src="{% static 'ecom/products/add-to-cart.mjs' %}"></script>
   </body>
 </html>
