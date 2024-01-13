@@ -102,6 +102,10 @@ btns.forEach((btn) => {
 				successToast("your cart was updated successfully");
 				return;
 			}
+			if (res.action === "redirect") {
+				window.location.href = `http://127.0.0.1:8000${res.url}`;
+				return;
+			}
 		} else {
 			errorToast("an error has occured, try again later.");
 			return;

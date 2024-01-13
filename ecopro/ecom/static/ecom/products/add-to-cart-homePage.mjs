@@ -60,17 +60,8 @@ const successToast = (text) =>
 			"bg-gradient-to-l from-neutral-800 to-neutral-800 text-sm w-full px-4 py-4 border-2 border-green-700 rounded-md max-w-fit capitalize flex items-center justify-between text-body text-neutral-300",
 		close: true,
 		gravity: "top", // `top` or `bottom`
-		position: "center", // `left`, `center` or `right`
-		stopOnFocus: true, // Prevents dismissing of toast on hover
-		onclick: () =>{
-			window.location.href = 'http://127.0.0.1:8000/cart';
-
-			console.log("test")
-			
-
-
-
-		},
+		position: "right", // `left`, `center` or `right`
+		stopOnFocus: true // Prevents dismissing of toast on hover
 	}).showToast();
 
 const errorToast = (text) =>
@@ -92,6 +83,11 @@ const handleResponse = (res) => {
 		// see what type of action happened in the backend
 		if (res.action === "nothing") {
 			successToast("your product just got added");
+			return;
+		}
+
+		if (res.action === "redirect") {
+			window.location.href = `http://127.0.0.1:8000${res.url}`;
 			return;
 		}
 

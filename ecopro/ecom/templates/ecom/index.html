@@ -47,19 +47,27 @@
         </div>
 
         <div class="flex justify-between items-center my-10">
-          <a href="{% url 'ecom:shop' %}?filter=protein" class="group bg-neutral-800 border-2 border-neutral-700 py-5 rounded-xl">
+          <a 		data-tilt data-tilt-glare data-tilt-max-glare="0.2"
+						data-tilt-max="10"
+						data-tilt-speed="750" href="{% url 'ecom:shop' %}?filter=protein" class="group bg-neutral-800 border-2 border-neutral-700 py-5 rounded-xl">
             <img class="rounded-lg w-52 hover:scale-105 duration-300" src="{% static 'img/products/my_protein_buddy.webp' %}" />
             <p class="text-center mt-2 group-hover:text-red-400 ">Protein</p>
           </a>
-          <a href="{% url 'ecom:shop' %}?filter=pre-workout" class="group bg-neutral-800 border-2 border-neutral-700 py-5 rounded-xl">
+          <a 		data-tilt data-tilt-glare data-tilt-max-glare="0.2"
+						data-tilt-max="10"
+						data-tilt-speed="750" href="{% url 'ecom:shop' %}?filter=pre-workout" class="group bg-neutral-800 border-2 border-neutral-700 py-5 rounded-xl">
             <img class="rounded-lg w-52 hover:scale-105 duration-300" src="{% static 'img/products/my_pre_buddy.webp' %}" />
             <p class="text-center mt-2 group-hover:text-red-400">pre-workout</p>
           </a>
-          <a href="{% url 'ecom:shop' %}?filter=creatine" class="group bg-neutral-800 border-2 border-neutral-700 py-5 rounded-xl">
+          <a 		data-tilt data-tilt-glare data-tilt-max-glare="0.2"
+						data-tilt-max="10"
+						data-tilt-speed="750" href="{% url 'ecom:shop' %}?filter=creatine" class="group bg-neutral-800 border-2 border-neutral-700 py-5 rounded-xl">
             <img class="rounded-lg w-52 hover:scale-105 duration-300" src="{% static 'img/products/creatine/creatine/main.webp' %}" />
             <p class="text-center mt-2 group-hover:text-red-400">creatine</p>
           </a>
-          <a href="{% url 'ecom:shop' %}?filter=BCAA" class="group bg-neutral-800 border-2 border-neutral-700 py-5 rounded-xl">
+          <a 		data-tilt data-tilt-glare data-tilt-max-glare="0.2"
+						data-tilt-max="10"
+						data-tilt-speed="750" href="{% url 'ecom:shop' %}?filter=BCAA" class="group bg-neutral-800 border-2 border-neutral-700 py-5 rounded-xl">
             <img class="rounded-lg w-52 hover:scale-105 duration-300" src="{% static 'img/products/BCAA/BCAA/main.webp' %}" />
             <p class="text-center mt-2 group-hover:text-red-400">BCAA</p>
           </a>
@@ -116,7 +124,9 @@
           <div class="embla__container flex">
             <!-- product -->
             {% for p in products %}
-              <a href="{% url 'ecom:product' id=p.id%}" class="mr-12 embla__slide flex-shrink-0 flex-grow-0 basis-auto w-fit relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl">
+              <a 		data-tilt data-tilt-glare data-tilt-max-glare="0.2"
+              data-tilt-max="10"
+              data-tilt-speed="750" href="{% url 'ecom:product' id=p.id%}" class="mr-12 embla__slide flex-shrink-0 flex-grow-0 basis-auto w-fit relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl">
                 <img class="rounded-lg w-52 mt-12 mx-8" src="{{ MEDIA_URL }}{{ p.url }}" />
                 <div class="w-full my-4 px-4 gap-y-1 flex flex-col justify-between items-start">
                   <p class="font-medium">{{ p.name }}</p>
@@ -181,7 +191,8 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
     <script  src="{% static 'ecom/products/slider.js' %}"></script>
-
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="{% static 'ecom/navDropDown.js' %}"></script>
     <script src="{% static 'ecom/dropDown.js' %}"></script>
     <script type="module"  src="{% static 'ecom/products/add-to-cart-homePage.mjs' %}"></script>
   </body>

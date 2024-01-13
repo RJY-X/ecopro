@@ -1,5 +1,4 @@
 from django.http import JsonResponse
-from django.shortcuts import redirect
 from ecom.api.queries.cart.helpers import (
     check_for_item,
     create_cart_item,
@@ -10,21 +9,19 @@ from ecom.api.queries.cart.helpers import (
 
 def add_to_cart(request):
     if request.method != "POST":
-        redirect("/shop")
-
-    if request.user.is_authenticated is False:
         return JsonResponse(
-            {"ok": False, "cause": "missing user is not authenticated", "status": 401}
+            {"ok": True, "status": 200, "action": "redirect", "url": "/shop"}
+        )
+
+    if request.user.is_authenticated == False:
+        return JsonResponse(
+            {"ok": True, "status": 200, "action": "redirect", "url": "/login"}
         )
 
     import json
 
-    request_body = request.body.decode("utf-8")
-    print("Request body:", request_body)
     data = json.loads(request.body.decode("utf-8"))
     user_id = request.user.id
-
-    # print(f"user_id ---- {user_id} ---- data.price --- {data['price']}")
 
     # check if user has a cart
     maybe_cart = check_for_cart(user_id)
@@ -51,6 +48,11 @@ def add_to_cart(request):
         if item.quantity == data["quantity"]:
             return JsonResponse({"ok": True, "status": 200, "action": "nothing"})
 
+        # change the total of the cart depending on the price and quantity
+        previous_item_total = item.price * item.quantity
+        new_item_total = data["price"] * data["quantity"]
+        cart.total = (cart.total - previous_item_total) + new_item_total
+        cart.save()
         # increase qty
         item.quantity = data["quantity"]
         item.save()
@@ -66,7 +68,7 @@ def add_to_cart(request):
     new_item = maybe_new_item["data"]
     # increase cart total
     cart = maybe_cart["data"]
-    cart.total = cart.total + new_item.price
+    cart.total = cart.total + (new_item.price * new_item.quantity)
     cart.save()
 
     return JsonResponse(
