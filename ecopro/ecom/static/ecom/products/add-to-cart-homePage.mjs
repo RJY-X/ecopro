@@ -1,6 +1,6 @@
-import universalCookie from "https://cdn.jsdelivr.net/npm/universal-cookie@7.0.1/+esm";
-
-const cookies = new universalCookie(null, { path: "/" });
+import Cookies from 'https://cdn.jsdelivr.net/npm/universal-cookie@7.0.1/+esm'
+      
+const cookies = new Cookies (null, { path: "/" });
 
 const btns = document.querySelectorAll("[data-add-to-cart-btn]");
 
@@ -91,7 +91,7 @@ const handleResponse = (res) => {
 	if (res.ok) {
 		// see what type of action happened in the backend
 		if (res.action === "nothing") {
-			successToast("ur cum just got added");
+			successToast("your product just got added");
 			return;
 		}
 
