@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from ecom.forms import SignupForm
 from django.utils.crypto import get_random_string
 from django.contrib.auth.models import User
+from django.contrib.auth import login
 
 
 def signup(request):
@@ -23,17 +24,18 @@ def signup(request):
                     },
                 )
             # insert user into database
-            form.save()
+            user = form.save()
+            login(request, user)
+
             return redirect("/")
         else:
             errors = {}
             for field, err in form.errors.items():
                 print(f"Field: {field}, Errors: {', '.join(err)}")
-                print(', '.join(err))
-                errors[field] = ', '.join(err)
+                print(", ".join(err))
+                errors[field] = ", ".join(err)
 
             return render(request, "ecom/sign_up.html", {"errors": errors})
 
     else:
         return render(request, "ecom/sign_up.html")
-        

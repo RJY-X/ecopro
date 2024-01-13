@@ -25,3 +25,10 @@ minusQuantityBtn.addEventListener("click",() => {
 
 
 
+quantityValue.addEventListener("change",() => {
+    if(isNaN(Number(quantityValue.value))===true || Number(quantityValue.value) < 1){
+        quantityValue.value = 1
+        return
+    }
+
+})

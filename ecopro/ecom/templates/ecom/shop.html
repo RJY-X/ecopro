@@ -94,6 +94,9 @@
 					{% comment %} Product {% endcomment %} 
 					{% for p in products %}
 					<a
+					data-tilt data-tilt-glare data-tilt-max-glare="0.2"
+						data-tilt-max="10"
+						data-tilt-speed="750"
 						href="{% url 'ecom:product' id=p.id %}"
 						class="w-fit relative transition-shadow ease-in gradient-border group bg-neutral-800 rounded-2xl"
 					>
@@ -118,5 +121,8 @@
 			</section>
 		</main>
 		{% include "ecom/footer.html" %}
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js" integrity="sha512-wC/cunGGDjXSl9OHUH0RuqSyW4YNLlsPwhcLxwWW1CR4OeC2E1xpcdZz2DeQkEmums41laI+eGMw95IJ15SS3g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		<script src="{% static 'ecom/navDropDown.js' %}"></script>
+
 	</body>
 </html>

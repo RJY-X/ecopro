@@ -13,14 +13,10 @@ def add_to_cart(request):
         redirect("/shop")
 
     if request.user.is_authenticated is False:
-        return JsonResponse(
-            {"ok": False, "cause": "missing user is not authenticated", "status": 401}
-        )
+        redirect("/login")
 
     import json
 
-    request_body = request.body.decode("utf-8")
-    print("Request body:", request_body)
     data = json.loads(request.body.decode("utf-8"))
     user_id = request.user.id
 
@@ -51,6 +47,11 @@ def add_to_cart(request):
         if item.quantity == data["quantity"]:
             return JsonResponse({"ok": True, "status": 200, "action": "nothing"})
 
+        # change the total of the cart depending on the price and quantity
+        previous_item_total = item.price * item.quantity
+        new_item_total = data["price"] * data["quantity"]
+        cart.total = (cart.total - previous_item_total) + new_item_total
+        cart.save()
         # increase qty
         item.quantity = data["quantity"]
         item.save()
@@ -66,7 +67,7 @@ def add_to_cart(request):
     new_item = maybe_new_item["data"]
     # increase cart total
     cart = maybe_cart["data"]
-    cart.total = cart.total + new_item.price
+    cart.total = cart.total + (new_item.price * new_item.quantity)
     cart.save()
 
     return JsonResponse(
