@@ -159,6 +159,10 @@ form.addEventListener("submit", async (e) => {
 		data.cart_item_id = cartItemId;
 		const res = await addOrder(data);
 		if (res.ok) {
+			if (res.action === "redirect") {
+				window.location.href = `http://127.0.0.1:8000${res.url}`;
+				return;
+			}
 			successToast("your order is confirmed");
 			setTimeout(() => {
 				window.location.href = "http://127.0.0.1:8000/shop";

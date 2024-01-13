@@ -64,7 +64,11 @@ addQuantityBtn.forEach((btn) => {
 
 		const newTotal = setCartTotal(total, prevQuantity, quantity, productPrice)
 		quantityInput.setAttribute('data-prev-quantity',quantity)
-		await updateQuantity(id,quantity, newTotal)
+		const res = await updateQuantity(id,quantity, newTotal)
+		if (res.ok && res.action === "redirect") {
+			window.location.href = `http://127.0.0.1:8000${res.url}`;
+			return;
+		}
 
 	})
 })

@@ -86,6 +86,11 @@ const handleResponse = (res) => {
 			return;
 		}
 
+		if (res.action === "redirect") {
+			window.location.href = `http://127.0.0.1:8000${res.url}`;
+			return;
+		}
+
 		if (res.action === "create") {
 			successToast("product was added successfully");
 			return;

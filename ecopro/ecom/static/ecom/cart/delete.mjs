@@ -34,6 +34,10 @@ deleteBtns.forEach((btn) => {
 		const res = await deleteItem(itemId)
 
 		if (res.ok) {
+			if (res.action === "redirect") {
+				window.location.href = `http://127.0.0.1:8000${res.url}`;
+				return;
+			}
 			cartTotal.setAttribute('data-total', res.data.cart_total)
 			cartTotal.innerText = `total: ${res.data.cart_total} DH`
 		}

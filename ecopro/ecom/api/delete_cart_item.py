@@ -5,10 +5,14 @@ from ecom.api.queries.cart.helpers import delete_cart_item
 
 def delete_cart_item_handler(request):
     if request.method != "POST":
-        redirect("/shop")
+        return JsonResponse(
+            {"ok": True, "status": 200, "action": "redirect", "url": "/shop"}
+        )
 
-    if request.user.is_authenticated is False:
-        redirect("/login")
+    if request.user.is_authenticated == False:
+        return JsonResponse(
+            {"ok": True, "status": 200, "action": "redirect", "url": "/login"}
+        )
 
     import json
 

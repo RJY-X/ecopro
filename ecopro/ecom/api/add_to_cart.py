@@ -1,5 +1,4 @@
 from django.http import JsonResponse
-from django.shortcuts import redirect
 from ecom.api.queries.cart.helpers import (
     check_for_item,
     create_cart_item,
@@ -10,17 +9,19 @@ from ecom.api.queries.cart.helpers import (
 
 def add_to_cart(request):
     if request.method != "POST":
-        redirect("/shop")
+        return JsonResponse(
+            {"ok": True, "status": 200, "action": "redirect", "url": "/shop"}
+        )
 
-    if request.user.is_authenticated is False:
-        redirect("/login")
+    if request.user.is_authenticated == False:
+        return JsonResponse(
+            {"ok": True, "status": 200, "action": "redirect", "url": "/login"}
+        )
 
     import json
 
     data = json.loads(request.body.decode("utf-8"))
     user_id = request.user.id
-
-    # print(f"user_id ---- {user_id} ---- data.price --- {data['price']}")
 
     # check if user has a cart
     maybe_cart = check_for_cart(user_id)

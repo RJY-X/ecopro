@@ -10,10 +10,14 @@ from ecom.api.queries.cart.helpers import (
 
 def add_order_handler(request):
     if request.method != "POST":
-        redirect("/shop")
+        return JsonResponse(
+            {"ok": True, "status": 200, "action": "redirect", "url": "/shop"}
+        )
 
-    if request.user.is_authenticated is False:
-        redirect("/login")
+    if request.user.is_authenticated == False:
+        return JsonResponse(
+            {"ok": True, "status": 200, "action": "redirect", "url": "/login"}
+        )
 
     import json
 
@@ -41,7 +45,6 @@ def add_order_handler(request):
 
     # move cart items to orderToProduct table
     for item in cart_items:
-        print(item)
         OrderToProduct.objects.create(
             order_id=new_order,
             product=item["product"],
@@ -49,6 +52,7 @@ def add_order_handler(request):
             flavor=item["flavor"],
             serving=item["serving"],
             quantity=item["quantity"],
+            price=item["price"],
         )
 
     empty_cart(maybe_cart["cart"])
