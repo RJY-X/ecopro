@@ -88,7 +88,7 @@
               {% comment %}dropDown{% endcomment %}
               <div class="relative">
                 <button data-dropDown-btn="{{ product_of_the_week.id }}" class="font-semibold inline-flex justify-center items-center gap-x-2 border-white border-2 bg-white/5 w-[540px] py-3 rounded-lg mb-3">
-                  Choose a serving
+                  {{product_of_the_week.serving}} Serving
                   <span class="material-symbols-outlined text-lg">expand_more</span>
                 </button>
                 <ul data-dropDown-serving="{{ product_of_the_week.serving }}" data-dropDown-list="{{ product_of_the_week.id }}" class="invisible opacity-0 transition-opacity duration-200 top-16 rounded-lg left-0 text-neutral-950 absolute w-full bg-neutral-100 shadow-md">
@@ -180,9 +180,9 @@
     </main>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
-    <script type="module" src="{% static 'ecom/products/slider.mjs' %}"></script>
+    <script  src="{% static 'ecom/products/slider.js' %}"></script>
 
     <script src="{% static 'ecom/dropDown.js' %}"></script>
-    <script type="module" src="{% static 'ecom/products/add-to-cart-homePage.mjs' %}"></script>
+    <script type="module"  src="{% static 'ecom/products/add-to-cart-homePage.mjs' %}"></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
-import universalCookie from "https://cdn.jsdelivr.net/npm/universal-cookie@7.0.1/+esm";
-
-const cookies = new universalCookie(null, { path: "/" });
+import Cookies from 'https://cdn.jsdelivr.net/npm/universal-cookie@7.0.1/+esm'
+      
+const cookies = new Cookies (null, { path: "/" });
 
 const btns = document.querySelectorAll("[data-add-to-cart-btn]");
 
@@ -61,10 +61,7 @@ const successToast = (text) =>
 		close: true,
 		gravity: "top", // `top` or `bottom`
 		position: "right", // `left`, `center` or `right`
-		stopOnFocus: true,
-		onclick: () => {
-			console.log('🚀 ~ howdy ~', );
-		} // Prevents dismissing of toast on hover
+		stopOnFocus: true // Prevents dismissing of toast on hover
 	}).showToast();
 
 const errorToast = (text) =>
@@ -77,7 +74,7 @@ const errorToast = (text) =>
 			"bg-gradient-to-l from-neutral-800 to-neutral-800 text-sm w-full px-4 py-4 border-2 border-red-700 rounded-md max-w-fit capitalize flex items-center justify-between text-body text-neutral-300",
 		close: true,
 		gravity: "top", // `top` or `bottom`
-		position: "right", // `left`, `center` or `right`
+		position: "center", // `left`, `center` or `right`
 		stopOnFocus: true, // Prevents dismissing of toast on hover
 	}).showToast();
 
@@ -85,6 +82,7 @@ const handleResponse = (res) => {
 	if (res.ok) {
 		// see what type of action happened in the backend
 		if (res.action === "nothing") {
+			successToast("your product just got added");
 			return;
 		}
 
