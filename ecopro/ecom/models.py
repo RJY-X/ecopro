@@ -91,6 +91,7 @@ class OrderToProduct(models.Model):
     flavor = models.CharField(max_length=255)
     serving = models.CharField(max_length=50)
     quantity = models.PositiveIntegerField()
+    price=models.DecimalField(max_digits=10, decimal_places=2, default=0)
 
     def __str__(self):
         return f"Order {self.order_id} - {self.product_name} - {self.flavor} - {self.serving} - Quantity {self.quantity}"
@@ -115,6 +116,7 @@ class CartItem(models.Model):
     cart_id = models.ForeignKey("Cart", on_delete=models.CASCADE)
     product = models.ForeignKey("Product", on_delete=models.CASCADE)
 
+    #chose what to display in admin 
     def __str__(self):
         return f"CartItem {self.id} - Product id {self.product.id} - Quantity: {self.quantity} - Price: {self.price} - Serving {self.serving}"
 
