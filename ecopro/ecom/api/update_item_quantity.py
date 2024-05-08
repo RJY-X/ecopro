@@ -16,6 +16,7 @@ def update_item_quantity(request):
 
     import json
 
+    #Il extrait les données JSON du corps de la requête, décodées en UTF-8, et les stocke dans la variable data
     data = json.loads(request.body.decode("utf-8"))
 
     isUpdated = update_quantity(

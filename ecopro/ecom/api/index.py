@@ -12,7 +12,7 @@ def index(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             ContactInfo.objects.create(
-                fullname=form.cleasned_data["fullname"],
+                fullname=form.cleaned_data["fullname"],
                 email=form.cleaned_data["email"],
                 message=form.cleaned_data["message"],
             )
